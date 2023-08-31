@@ -3,7 +3,7 @@ import React from 'react';
 
 const AboutSectionTwo = () => {
    return (
-      <section className="about-area style-2 pt-120 pb-140">
+      <section className="about-area style-2 pt-120 pb-140" style={{"height":"100vh"}}>
          <div className="container">
             <div className="row align-items-center wow fadeInUp" data-wow-delay=".3s">
                <div className="col-lg-6">

@@ -36,8 +36,8 @@ const PortfolioSlider = () => {
                     <div className="row justify-content-center wow fadeInUp" data-wow-delay=".3s">
                         <div className="col-lg-8">
                             <div className="section-title style-2 text-center">
-                                <span className="section-subtitle">showcase</span>
-                                <h2 className="section-main-title mb-45">watch our gallery</h2>
+                                <span className="section-subtitle">Gallery</span>
+                                <h2 className="section-main-title mb-45">browse our gallery</h2>
                             </div>
                         </div>
                     </div>
@@ -87,14 +87,11 @@ const PortfolioSlider = () => {
                                                     <div className="swiper-slidess">
                                                         <div className="portfolio-single portfolio-hover-style style-2">
                                                             <div className="portfolio-thumb">
-                                                                <Link href={`/portfolio-details/${item.id}`}><a><img src={item.portfolioImg} alt="" /></a></Link>
+                                                                <a><img src={item.portfolioImg} alt="" /></a>
                                                                 <div className="portfolio-content">
-                                                                    <Link href={`/portfolio-details/${item.id}`}><a className="portfolio-hover-bg"></a></Link>
+                                                                   <a className="portfolio-hover-bg"></a>
                                                                     <div className="portfolio-inner">
-                                                                        <div className="portfolio-inner-text">
-                                                                            <span className="portfolio-tag">{item.portfolioTag}</span>
-                                                                            <h4 className="portfolio-title"><Link href={`/portfolio-details/${item.id}`}><a>{item.portfolioTitle}</a></Link></h4>
-                                                                        </div>
+                                                                       
                                                                         <span onClick={setOpen}>
                                                                             <button className="icon-btn image-popups" onClick={() => setPhotoIndex(index)}><i className={item.portfolioIcon}></i></button>
                                                                         </span>
