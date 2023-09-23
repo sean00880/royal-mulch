@@ -226,9 +226,13 @@ div.slider-pagination.slider1-pagination {
     display: flex;
     text-align: center;
     flex-direction: column; 
+	padding: 30px 8px;
+	border-radius: 10px;
+	background: black;
+	border: 3px solid white;
 	
 	@media #{$md,$sm,$xs} {
-		padding-top: 0;
+		
 	}
 	.banner-meta-text {
 		span {

@@ -5,7 +5,7 @@ import HomeMain from '../components/home-2';
 const index = () => {
   return (
     <Wrapper>
-      <SEO pageTitle={'Premium Quality Mulch in Bulk in Canal Winchester, OH'} />
+      <SEO pageTitle={'Premium Quality Mulch in Bulk in Lancaster, OH'} />
       <HomeMain />
     </Wrapper>
   );

@@ -309,7 +309,6 @@
 	box-shadow: 0px 16px 32px 0px rgba(0, 0, 0, 0.04);
 	border-radius: 20px 20px;
 	overflow: hidden;
-	margin-top: -70px;
 }
 .about-tab-nav {
 	.nav-tabs {
@@ -429,9 +428,9 @@
 }
 .service-tab-img {
 	max-width: 576px;
-	margin: 0 30px;
+	margin: 30px;
 	@media #{$md,$sm,$xs} {
-		margin-left: 0;
+		
 	}
 	img {
 		width: 100%;

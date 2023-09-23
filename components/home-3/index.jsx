@@ -22,7 +22,6 @@ const index = () => {
             <FactSectionThree />
             <ClientsSection />
             <PortfolioSliderThree />
-            <TestimonialSliderThree />
             <ProductSection />
             <ContactSectionThree />
             <FooterThree />

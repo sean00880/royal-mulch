@@ -87,7 +87,7 @@ const FooterOne = () => {
                                                 <div className="contact-icon">
                                                     <i className="fas fa-map-marked-alt"></i>
                                                 </div>
-                                                <p><a href="#">Canal Winchester, OH 10065</a></p>
+                                                <p><a href="#">Lancaster, OH 43130</a></p>
                                             </div>
                                         </li>
                                     </ul>

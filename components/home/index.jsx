@@ -25,7 +25,6 @@ const index = () => {
       <PricingSection />
       <PortfolioSection />
       <WorkSection />
-      <TestimonialSection />
       <FactSection />
       <BlogSection />
       <BrandSlider />

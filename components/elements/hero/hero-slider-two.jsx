@@ -2,6 +2,7 @@ import Link from 'next/link';
 import React from 'react';
 import { EffectFade, Pagination, Scrollbar, A11y, Autoplay, } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import {IoIosCall} from 'react-icons/io'
 
 // Import Swiper styles
 import 'swiper/css/bundle';
@@ -12,9 +13,9 @@ const HeroSliderTwo = () => {
         {
             id: 1,
             sliderBg: '/assets/img/banner/banner-2-1.jpg',
-            sliderSubtitle: `[ Serving Central Ohio since XXXX ]`,
+            sliderSubtitle: `Canal Winchester | Pickerington | Carroll | Groveport | Lancaster | Sugar Grove | Amanada`,
             sliderTitle: 'Triple Ground Mulch',
-            sliderDesc: 'Premium Mulch Yard in Canal Winchester, Ohio – Enhance Your Landscape with Quality Mulch Solutions!',
+            sliderDesc: 'Premium Mulch Yard in Lancaster, Ohio – Enhance Your Landscape with Quality Mulch Solutions!',
             slidereviewImg: '/assets/img/banner/meta-review-thumb.png',
             slidereviewText: 'Active Review',
             slidereviewCount: '3200+',
@@ -23,9 +24,9 @@ const HeroSliderTwo = () => {
         {
             id: 2,
             sliderBg: '/assets/img/banner/banner-4-1.jpg',
-            sliderSubtitle: `[ Serving Central Ohio since XXXX ]`,
+            sliderSubtitle: `Canal Winchester | Pickerington | Carroll | Groveport | Lancaster | Sugar Grove | Amanada`,
             sliderTitle: 'Available in Bulk',
-            sliderDesc: 'Premium Mulch Yard in Canal Winchester, Ohio – Enhance Your Landscape with Quality Mulch Solutions!',
+            sliderDesc: 'Premium Mulch Yard in Lancaster, Ohio – Enhance Your Landscape with Quality Mulch Solutions!',
             slidereviewImg: '/assets/img/banner/meta-review-thumb.png',
             slidereviewText: 'Active Review',
             slidereviewCount: '3200+',
@@ -34,9 +35,9 @@ const HeroSliderTwo = () => {
         {
             id: 3,
             sliderBg: '/assets/img/banner/banner-1-1.jpg',
-            sliderSubtitle: `[ Serving Central Ohio since XXXX ]`,
+            sliderSubtitle: `Canal Winchester | Pickerington | Carroll | Groveport | Lancaster | Sugar Grove | Amanada`,
             sliderTitle: 'Unparalleled Quality',
-            sliderDesc: 'Premium Mulch Yard in Canal Winchester, Ohio – Enhance Your Landscape with Quality Mulch Solutions!',
+            sliderDesc: 'Premium Mulch Yard in Lancaster, Ohio – Enhance Your Landscape with Quality Mulch Solutions!',
             slidereviewImg: '/assets/img/banner/meta-review-thumb.png',
             slidereviewText: 'Active Review',
             slidereviewCount: '3200+',
@@ -77,11 +78,24 @@ const HeroSliderTwo = () => {
                                                             <div className="banner-text" data-animation="fadeInUp" data-delay=".7s">
                                                             
                                                                 <p>{item.sliderDesc}</p>
-
+                                                                <br />
+                                                                Areas Serving: 
+                                                                <br />
                                                                 <br />
 
                                                                 <div className="banner-meta-text" data-animation="fadeInUp" data-delay=".3s">
                                                                 <span>{item.sliderSubtitle}</span>
+
+                                                                <br />
+                                                                <hr />
+                                                                <br />
+                                                                Call & Schedule Pickup or Delivery: 
+                                                                
+                                                                <br />
+                                                                <br />
+                                                                <span><a href="tel:+16145820234"><IoIosCall/>
+(614)582-0234</a></span> 
+                                                                <br />
                                                             </div>
 
                                                             </div>

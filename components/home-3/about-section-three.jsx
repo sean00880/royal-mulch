@@ -2,7 +2,7 @@ import React from 'react';
 
 const AboutSectionThree = () => {
     return (
-        <div className="about-area vh-100 d-flex flex-row justify-content-center" id="about">
+        <div className="about-area d-flex flex-row justify-content-center" id="about">
             <div className="container">
                 <div className="about-tab-wrapper">
 
@@ -18,14 +18,13 @@ const AboutSectionThree = () => {
                                             <div className="service-tab-content">
                                                 <div className="section-title style-3">
                                                     
-                                                    <h2 className="section-main-title mb-20">Premium Quality Residential Mulch Solutions!</h2>
+                                                    <h2 className="section-main-title mb-20">Premium Quality Residential & Commercial Mulch Solutions!</h2>
                                                     <span className="section-subtitle">near Columbus, Ohio</span>
                                                 </div>
                                                 <p>Our commitment to excellence drives us to provide the finest mulch products, carefully curated to suit your specific needs. Whether you're aiming for a vibrant burst of color or seeking a natural look, we have mulch varieties that cater to your preferences. </p>
                                                 <div className="service-tab-point">
                                                     <i className="fal fa-check"></i>
-                                                    <p>High standards of professionalism,
-                                                        integrity Establishment.</p>
+                                                    <p>Get your garden in triple the trouble with our premium triple ground mulch – where roots run deep, and plants leap to life!</p>
                                                     <i className="flaticon-garden-1 backside-icon"></i>
                                                 </div>
                                             </div>

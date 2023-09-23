@@ -21,7 +21,6 @@ const index = () => {
       <AboutSectionTwo/>
       <ServiceSectionTwo />
       <PortfolioSlider />    
-      <TestimonialSliderTwo />
       <FaqSectionTwo />
       <BlogSectionTwo />
       <ContactSection />
