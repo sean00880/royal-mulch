@@ -8,6 +8,7 @@ import SidebarCart from '../../components/common/sidebar-cart';
 import useCartInfo from '../../hooks/use-cart-info';
 import useGlobalContext from '../../hooks/use-context';
 import HeaderTopTwo from './headertoptwo';
+import {IoIosCall} from 'react-icons/io'
 
 import NavMenu from './navmenu';
 
@@ -37,7 +38,7 @@ const HeaderTwo = () => {
     return (
         <>
             <header className="header2">
-                <HeaderTopTwo />
+           
                 <div id="header-sticky" className="meta-header-area">
                     <div className="container">
                         <div className="meta-header-inner">
@@ -49,14 +50,17 @@ const HeaderTwo = () => {
                             <div className="meta-header-right">
                                 <div className="meta-items meta-header-meta-items d-none d-lg-inline-flex">
                                     <div className="meta-item">
-                                        <div className="meta-item-icon">
-                                            <i className="fas fa-alarm-clock"></i>
-                                        </div>
+                                        
                                         <div className="meta-item-content">
-                                            <p>Mon - Sat <br /><br /> 7:00 AM - 3:00 PM</p>
-                                            <br />
-                                            <div className="meta-title">Premium Bulk Mulch in Central Ohio</div>
+                                            
+                                            <div className="meta-title">Premium Mulch Supplies <br /> <div className="meta-item-content">
+                                            <p>Available in Bulk</p>
+
+    
+                                            
+                                        </div></div>
                                         </div>
+                                        
                                     </div>
                                     <div className="meta-item d-none d-xl-inline-flex">
                                         <div className="meta-item-icon">
@@ -73,7 +77,7 @@ const HeaderTwo = () => {
                                         <NavMenu />
                                     </nav>
                                 </div>
-                                <Link href="/contact"><a className="border-btn-rounded d-none d-lg-inline-flex"><i className="fal fa-farm"></i><span>Contact Us</span></a></Link>
+                                <Link href="#contact"><a className="border-btn-rounded d-none d-lg-inline-flex"><i className="fal fa-farm"></i><span>Contact Us</span></a></Link>
                                 <div className="menu-bar d-lg-none">
                                     <span className="side-toggle" onClick={() => setShowSidebar(true)}>
                                         <div className="bar-icon">
@@ -98,26 +102,9 @@ const HeaderTwo = () => {
                                                 <NavMenu />
                                             </nav>
                                         </div>
-                                        <div className="header-search d-none d-xl-inline-block">
-                                            <form action="#">
-                                                <div className="single-input-field field-search">
-                                                    <input type="search" placeholder="Keyword here..." />
-                                                    <button type="submit"><i className="fas fa-search"></i></button>
-                                                </div>
-                                            </form>
-                                        </div>
+                                        
                                     </div>
-                                    <div className="header-main-right header-main-right-header2">
-                                        <div className="meta-item">
-                                            <div className="meta-item-icon">
-                                                <i className="flaticon-telephone"></i>
-                                            </div>
-                                            <div className="meta-item-content">
-                                                <div className="meta-title">Call Us</div>
-                                                <p><a href="tel:6145820234">(614) 582-0234</a></p>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    
                                 </div>
                             </div>
                         </div>

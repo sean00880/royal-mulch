@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import React from 'react';
 import nav_menus_list from '../../data/headernav/nav-menus';
+import {IoIosCall} from 'react-icons/io'
 
 const NavMenu = () => {
     return (
@@ -17,10 +18,16 @@ const NavMenu = () => {
                                     <li key={index}><Link href={`${menu.link}`}>{menu.title}</Link></li>
                                 ))}
                             </ul>}
+                            
                         </li>
+                        
                     )
                 })}
-
+                 <span className="call">
+                 Call for Pickup or Delivery: 
+                                                       
+                                                               <span><a href="tel:+16145820234" > <IoIosCall/>+1(614)582-0234</a></span>
+                                                               </span>                                
             </ul>
         </>
     );

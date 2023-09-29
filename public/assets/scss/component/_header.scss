@@ -21,6 +21,11 @@
 // menu style
 .main-menu {
 	display: inline-block;
+	.call{
+		margin-left: 30px;
+		font-style: italic;
+		color: var(--clr-common-heading);
+	}
 	ul {
 		li {
 			display: inline-block;
@@ -522,6 +527,10 @@ div.mean-container {
 		}
 		.main-menu ul li .sub-menu li a {
 			color: var(--clr-common-heading);
+		}
+
+		.main-menu ul .call{
+			color: var(--clr-common-white);
 		}
 	}
 }

@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 
 const AboutSectionThree = () => {
     return (
@@ -19,19 +20,15 @@ const AboutSectionThree = () => {
                                                 <div className="section-title style-3">
                                                     
                                                     <h2 className="section-main-title mb-20">Premium Quality Residential & Commercial Mulch Solutions!</h2>
-                                                    <span className="section-subtitle">near Columbus, Ohio</span>
+                                                    <span className="section-subtitle">Serving Lancaster, Ohio and Surrounding Regions</span>
                                                 </div>
                                                 <p>Our commitment to excellence drives us to provide the finest mulch products, carefully curated to suit your specific needs. Whether you're aiming for a vibrant burst of color or seeking a natural look, we have mulch varieties that cater to your preferences. </p>
-                                                <div className="service-tab-point">
-                                                    <i className="fal fa-check"></i>
-                                                    <p>Get your garden in triple the trouble with our premium triple ground mulch – where roots run deep, and plants leap to life!</p>
-                                                    <i className="flaticon-garden-1 backside-icon"></i>
-                                                </div>
+                                                
                                             </div>
                                         </div>
                                         <div className="col-lg-6">
                                             <div className="service-tab-img">
-                                                <img src="/assets/img/service/residential.jpg" alt="" />
+                                                <Image src="/assets/img/service/residential.jpg" width={400} height={300} alt="" />
                                             </div>
                                         </div>
                                     </div>

@@ -427,13 +427,16 @@
 	max-width: 510px;
 }
 .service-tab-img {
-	max-width: 576px;
+	display:flex;
+	justify-content: center;
+	border-radius: 10px;
 	margin: 30px;
 	@media #{$md,$sm,$xs} {
 		
 	}
 	img {
 		width: 100%;
+		border-radius: 10px;
 	}
 }
 .service-tab-point {

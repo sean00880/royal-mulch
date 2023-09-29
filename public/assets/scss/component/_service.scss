@@ -119,6 +119,7 @@
 		}
 	}
 	.single-service-content {
+		padding: 20px;
 		p {
 			margin-bottom: 25px;
 			transition: 0.3s;
@@ -802,7 +803,7 @@
 	.service-title {
 		font-size: 26px;
 		text-transform: uppercase;
-		margin-bottom: 15px;
+		margin: 15px 0;
 		@media #{$md} {
 			font-size: 22px;
 		}
