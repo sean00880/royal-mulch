@@ -65,6 +65,7 @@
 		z-index: -1;
 		top: 0;
 		left: 0;
+		display: none;
 	}
 	.portfolio-tag {
 		font-size: 14px;
@@ -93,6 +94,7 @@
 		flex-direction: column;
 		align-items: center;
 		justify-content: space-between;
+		display: none;
 	}
 }
 .portfolio-hover-items-wrapper {

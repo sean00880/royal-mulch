@@ -110,7 +110,7 @@ const FooterOne = () => {
                             </div>
                             <div className="col-lg-6 col-md-6">
                                 <div className="copyright-text copyright1-text">
-                                    Copyright & Design By <a href="https://www.sitedominion.com/">Site Dominion LLC</a> - 2023
+                                    Copyright & Website By <a href="https://www.sitedominion.com/">Site Dominion, LLC</a> - 2023
                                 </div>
                             </div>
                             <div className="col-lg-3 col-md-2">

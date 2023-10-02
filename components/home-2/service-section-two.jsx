@@ -45,7 +45,7 @@ const ServiceSectionTwo = () => {
                         <img src="/assets/img/shape/pattern-1270.png" alt="" />
                     </div>
                     <h3><i className="flaticon-house"></i>Experience the Excellence of Royal Mulch's Triple Ground Mulch: Unmatched Quality for Your Landscape Transformation!</h3>
-                    <Link href="/contact"><a className="fill-btn-rounded"><i className="fal fa-farm"></i><span>Get a Quote</span></a></Link>
+                    <Link href="#contact"><a className="fill-btn-rounded"><i className="fal fa-farm"></i><span>Get a Quote</span></a></Link>
                 </div>
             </div>
         </section>
