@@ -67,7 +67,7 @@ const HeaderTwo = () => {
                                             <i className="fas fa-envelope-open"></i>
                                         </div>
                                         <div className="meta-item-content">
-                                            <p>info@royalmulchllc.com</p>
+                                            <p>royalmulchllc@gmail.com</p>
                                             <div className="meta-title">Email Address</div>
                                         </div>
                                     </div>
