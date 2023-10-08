@@ -76,7 +76,7 @@ const PortfolioSlider = () => {
                                     }}
 
                                 >
-                                    {portfolioList.slice(4, 21).map((item, index) => {
+                                    {portfolioList.slice(4, 23).map((item, index) => {
                                         return (
                                             <SwiperSlide key={index}>
                                                 <motion.div animate={{ scale: 1 }}

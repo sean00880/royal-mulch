@@ -28,7 +28,7 @@ const AboutSectionThree = () => {
                                         </div>
                                         <div className="col-lg-6">
                                             <div className="service-tab-img">
-                                                <Image src="/assets/img/service/residential.jpg" width={400} height={300} alt="" />
+                                                <img src="/assets/img/service/residential.jpg" alt="" />
                                             </div>
                                         </div>
                                     </div>
