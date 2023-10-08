@@ -1,6 +1,24 @@
-import React from 'react';
+
+import emailjs from '@emailjs/browser';
+import React, { useRef } from 'react';
+import { useState } from 'react';
+import Popup from "../contact/Popup";
 
 const ContactSection = () => {
+   const form = useRef();
+  
+    const sendEmail = (e) => {
+      e.preventDefault();
+  
+      emailjs.sendForm('service_w8gp96m', 'template_oq447lw', form.current, 'jUn1z-vodKfQLijZ7 asdasd')
+        .then((result) => {
+            console.log(result.text);
+        }, (error) => {
+            console.log(error.text);
+        });
+    };
+  
+  const [buttonPopup, setButtonPopup] = useState(false);
     return (
         <section id="contact" className="pricing-cta pt-120 pb-120 fix">
          <div className="container">
@@ -17,7 +35,7 @@ const ContactSection = () => {
                   <div className="row">
                      <div className="col-xl-8">
                         <div className="pricing-cta-form">
-                           <form action="#">
+                           <form ref={form} onSubmit={sendEmail} >
                               <div className="row">
                                  <div className="col-md-6 col-sm-12">
                                     <div className="single-input-field field-name">
@@ -34,7 +52,7 @@ const ContactSection = () => {
                                  <div className="col-md-6 col-sm-12">
                                     <div className="single-input-field field-number">
                                        <label htmlFor="number">phone number</label>
-                                       <input type="text" placeholder="enter here..." name="number" id="number"/>
+                                       <input type="text" placeholder="enter here..." name="text" id="number"/>
                                     </div>
                                  </div>
                                  <div className="col-md-6 col-sm-12">
@@ -47,13 +65,17 @@ const ContactSection = () => {
                                     <div className="select-service-button">
                                        <div className="single-input-field field-service">
                                           <label htmlFor="select-service">Your Detailed Message</label>
-                                          <input type="text" className="select-service" name="select-service" >
+                                          <textarea type="text" className="select-service" name="message" >
                                     
-                                          </input>
+                                          </textarea>
                                        </div>
-                                       <a href="#" className="fill-btn">Get in Touch<i
-                                             className="fal fa-long-arrow-right"></i></a>
+                                       <button className="fill-btn" onClick={()=>setButtonPopup(true)}>Get in Touch<i
+                                             className="fal fa-long-arrow-right"></i></button>
+                                       
                                     </div>
+                                    <Popup trigger={buttonPopup} setTrigger={setButtonPopup}>
+          <h3>Your message has been sent. We will reach out to you shortly.</h3>
+        </Popup>
                                  </div>
                                  
                               </div>
