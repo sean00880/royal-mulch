@@ -93,19 +93,7 @@ const Sidebar = () => {
                                 </div>
                             </div>
                         </div>
-                        <div className="offset-widget offset-social mb-30">
-                            <div className="footer-social">
-                                <span>Connect:</span>
-                                <div className="social-links">
-                                    <ul>
-                                        <li><a href="#"><i className="fab fa-twitter"></i></a></li>
-                                        <li><a href="#"><i className="fab fa-behance"></i></a></li>
-                                        <li><a href="#"><i className="fab fa-youtube"></i></a></li>
-                                        <li><a href="#"><i className="fab fa-linkedin"></i></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
+                        
                     </div>
                 </div>
             </div>
