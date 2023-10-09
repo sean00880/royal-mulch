@@ -30,7 +30,7 @@ const portfolioList = [
     //home one portfolio end
     {
         id:5,
-        portfolioImg:'/assets/img/portfolio/gallery1.jpg',
+        portfolioImg:'/assets/img/portfolio/gallery-first.jpg',
         portfolioTag:'Mulch Image',
         portfolioIcon:'fas fa-eye',
         portfolioTitle:'Mulch Image 1',
