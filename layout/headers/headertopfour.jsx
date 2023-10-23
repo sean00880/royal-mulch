@@ -20,7 +20,7 @@ const HeaderTopFour = () => {
                                     <i className="fas fa-envelope-open"></i>
                                 </div>
                                 <div className="meta-item-text">
-                                    <p><a href="mailto:info@Royal Mulch.com">info@Royal Mulch.com</a></p>
+                                    <p><a href="mailto:royalmulchllc@gmail.com">royalmulchllc@gmail.com</a></p>
                                 </div>
                             </div>
                         </div>

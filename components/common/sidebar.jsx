@@ -61,7 +61,7 @@ const Sidebar = () => {
                         <div className="offset-widget offset-logo mb-40">
                             <div className="row align-items-center">
                                 <div className="col-9">
-                                    <Link href="/"><a><img src="/assets/img/logo/logo-bl.png" alt="Logo" /></a></Link>
+                                    <Link href="/"><a><img src="/assets/img/logo/logo-bl.png" style={{width:"100px"}} alt="Logo" /></a></Link>
                                 </div>
                                 <div className="col-3 text-end"><button className="side-info-close" onClick={() => setShowSidebar(false)}><i className="fal fa-times"></i></button></div>
                             </div>
@@ -69,7 +69,7 @@ const Sidebar = () => {
                         {/* <!-- side-mobile-menu start --> */}
                         <nav className="side-mobile-menu d-block d-xl-none mm-menu">
                             <ul>
-                            <li><Link href="#">Homne</Link></li>
+                            <li><Link href="#">Home</Link></li>
                                 <li><Link href="#about">About</Link></li>
                                 <li><Link href="#mulch-selection">Mulch Selection</Link></li>
                                 <li> <Link href="#gallery">Gallery</Link> </li>
@@ -88,7 +88,7 @@ const Sidebar = () => {
                                     </div>
                                     <div className="irc-item-content">
                                         <p>Call Us</p>
-                                        <div className="support-number"><a href="tel:98965963168">+1(614)582-0234</a></div>
+                                        <div className="support-number"><a href="tel:+16145820234">+1(614)582-0234</a></div>
                                     </div>
                                 </div>
                             </div>
