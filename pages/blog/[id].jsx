@@ -24,7 +24,7 @@ const BlogsDetails = () => {
 
   return (
     <>
-      <SEO pageTitle={'Blog Details'} />
+      <SEO pageTitle={'Mulch Supplies Near Columbus, OH'} />
       <HeaderOne />
       <main>
         <BlogDetailsArea item={blog} />
