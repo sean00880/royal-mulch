@@ -1,6 +1,6 @@
  /** @type {import('next-sitemap').IConfig} */
  module.exports = {
-    siteUrl: "https://www.royalmulch.rs",
+    siteUrl: "https://www.royalmulch.com",
     generateRobotsTxt: true, // (optional)
     robotsTxtOptions: {
       policies: [
@@ -11,7 +11,7 @@
       ],
       // this is for dynamic sitemap url's (in my case products)
       // that we will implement later
-      additionalSitemaps: [`${process.env.SITE_URL}/server-sitemap.xml`],
+      additionalSitemaps: [`https://www.royalmulch.com/server-sitemap.xml`],
     },
     // what you exclude that will not show up inside sitemap.xml
     exclude: ["/admin/*"],

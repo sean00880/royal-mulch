@@ -79,7 +79,7 @@ const FooterOne = () => {
                                                 <div className="contact-icon">
                                                     <i className="fas fa-envelope-open"></i>
                                                 </div>
-                                                <p><a href="mailto:info@royalmulchllc.com">info@royalmulchllc.com</a></p>
+                                                <p><a href="mailto:royalmulchllc@gmail.com">royalmulchllc@gmail.com</a></p>
                                             </div>
                                         </li>
                                         <li>
