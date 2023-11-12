@@ -11,4 +11,3 @@ Host: https://www.royalmulch.com
 
 # Sitemaps
 Sitemap: https://www.royalmulch.com/sitemap.xml
-Sitemap: https://www.royalmulch.com/server-sitemap.xml

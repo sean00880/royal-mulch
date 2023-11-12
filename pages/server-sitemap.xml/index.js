@@ -1,20 +1,19 @@
-import { getServerSideSitemapLegacy } from "next-sitemap";
-import db from "../../utils/db";
 import blogItemsList from '../../data/blogs';
 
-export const getServerSideProps = async (ctx) => {
-  //connect to the mongoDB
-  await db.connectDb();
-  const blog = await blogItemsList.find().lean();
-
-  // console.log(products);
-
-  const fields = products.map((blog) => ({
-    loc: `https://www.royalmulch.com/${blog.id}`,
-    lastmod: product.updatedAt,
-  }));
-  // console.log(fields)
-  return getServerSideSitemapLegacy(ctx, fields);
-};
+export async function getServerSideProps({ res }) {
+  const posts = blogItemsList();
+ 
+  // Generate the XML sitemap with the blog data
+  const sitemap = generateSiteMap(posts);
+ 
+  res.setHeader("Content-Type", "text/xml");
+  // Send the XML to the browser
+  res.write(sitemap);
+  res.end();
+ 
+  return {
+    props: {},
+  };
+}
 
 export default function Site() {}

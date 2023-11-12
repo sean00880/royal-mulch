@@ -9,9 +9,7 @@
         // everything else is okay
         { userAgent: "*", allow: "/" },
       ],
-      // this is for dynamic sitemap url's (in my case products)
-      // that we will implement later
-      additionalSitemaps: [`https://www.royalmulch.com/server-sitemap.xml`],
+      // this is for dynamic sitemap url's (in my case products);
     },
     // what you exclude that will not show up inside sitemap.xml
     exclude: ["/admin/*"],
