@@ -4,7 +4,7 @@ const SEO = ({ pageTitle,font }) => (
   <>
     <Head>
       <title>
-        {pageTitle && `${pageTitle} || Royal Mulch LLC - Premium Mulch Supplies near Columbus, OH}`}
+      {pageTitle && `Royal Mulch | ${pageTitle}  - Top Mulch Supplier`}
       </title>
       <meta httpEquiv="x-ua-compatible" content="ie=edge" />
       <meta name="description" content="Premium Mulch Supplies near Lancaster, OH & Surrounding Regions. We have triple ground brown, black and natural mulch in bulk available for pickup or delivery. " />
