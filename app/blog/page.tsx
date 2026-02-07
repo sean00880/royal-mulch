@@ -95,42 +95,62 @@ export default function BlogPage() {
               </div>
             </div>
 
-            {/* Sidebar */}
+            {/* Sidebar - Sticky */}
             <div className="lg:col-span-1">
-              {/* Categories */}
-              <Card className="mb-6">
-                <CardContent className="p-6">
-                  <h3 className="text-xl font-semibold mb-4">Categories</h3>
-                  <ul className="space-y-2">
-                    {Registry.blogCategories.map((category) => (
-                      <li key={category.slug}>
-                        <Link
-                          href={`/blog?category=${category.slug}`}
-                          className="flex items-center justify-between py-2 hover:text-primary transition-colors"
-                        >
-                          <span>{category.name}</span>
-                          <span className="text-muted-foreground text-sm">
-                            ({category.count})
-                          </span>
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                </CardContent>
-              </Card>
+              <div className="lg:sticky lg:top-24 space-y-6 transition-all duration-300 ease-out will-change-transform">
+                {/* Organization Card */}
+                <Card>
+                  <CardContent className="p-6 text-center">
+                    <div className="relative w-16 h-16 rounded-full overflow-hidden mx-auto mb-3 ring-2 ring-primary/20">
+                      <Image
+                        src="/assets/img/logo/logo1.png"
+                        alt="Royal Mulch"
+                        fill
+                        className="object-contain p-1"
+                      />
+                    </div>
+                    <h3 className="text-lg font-semibold">Royal Mulch</h3>
+                    <p className="text-muted-foreground text-sm">
+                      Premium mulch delivery &amp; pickup in Lancaster, OH since 1995.
+                    </p>
+                  </CardContent>
+                </Card>
 
-              {/* CTA Card */}
-              <Card className="bg-primary text-white">
-                <CardContent className="p-6">
-                  <h3 className="text-xl font-semibold mb-4">Ready to Order?</h3>
-                  <p className="text-white/90 mb-6">
-                    Get premium mulch delivered or stop by our Lancaster yard for pickup.
-                  </p>
-                  <Button asChild variant="secondary" className="w-full">
-                    <Link href="/quote">Get a Quote</Link>
-                  </Button>
-                </CardContent>
-              </Card>
+                {/* Categories */}
+                <Card>
+                  <CardContent className="p-6">
+                    <h3 className="text-xl font-semibold mb-4">Categories</h3>
+                    <ul className="space-y-2">
+                      {Registry.blogCategories.map((category) => (
+                        <li key={category.slug}>
+                          <Link
+                            href={`/blog?category=${category.slug}`}
+                            className="flex items-center justify-between py-2 hover:text-primary transition-colors duration-200"
+                          >
+                            <span>{category.name}</span>
+                            <span className="text-muted-foreground text-sm">
+                              ({category.count})
+                            </span>
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </CardContent>
+                </Card>
+
+                {/* CTA Card */}
+                <Card className="bg-primary text-white">
+                  <CardContent className="p-6">
+                    <h3 className="text-xl font-semibold mb-4">Ready to Order?</h3>
+                    <p className="text-white/90 mb-6">
+                      Get premium mulch delivered or stop by our Lancaster yard for pickup.
+                    </p>
+                    <Button asChild variant="secondary" className="w-full">
+                      <Link href="/quote">Get a Quote</Link>
+                    </Button>
+                  </CardContent>
+                </Card>
+              </div>
             </div>
           </div>
         </div>
