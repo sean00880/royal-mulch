@@ -2,40 +2,15 @@
 
 import * as React from 'react';
 import Link from 'next/link';
-import { Phone, Mail, MapPin, Facebook, Instagram, Twitter } from 'lucide-react';
+import Image from 'next/image';
+import { Phone, Mail, MapPin, Facebook, Instagram, Twitter, Youtube } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { cn } from '@/lib/utils';
-
-const footerLinks = {
-  mulch: [
-    { name: 'Black Mulch', href: '/services/black-mulch' },
-    { name: 'Brown Mulch', href: '/services/brown-mulch' },
-    { name: 'Natural Mulch', href: '/services/natural-mulch' },
-    { name: 'All Services', href: '/services' },
-  ],
-  services: [
-    { name: 'Mulch Installation', href: '/services/mulch-installation' },
-    { name: 'Landscape Design', href: '/services/landscape-design' },
-    { name: 'Tree Services', href: '/services/tree-services' },
-    { name: 'Hardscaping', href: '/services/hardscaping' },
-  ],
-  company: [
-    { name: 'About Us', href: '/about' },
-    { name: 'Portfolio', href: '/portfolio' },
-    { name: 'Blog', href: '/blog' },
-    { name: 'Contact', href: '/contact' },
-  ],
-  support: [
-    { name: 'Get a Quote', href: '/quote' },
-    { name: 'FAQ', href: '/#faq' },
-    { name: 'Privacy Policy', href: '/privacy' },
-    { name: 'Terms of Service', href: '/terms' },
-  ],
-};
+import { SITE_CONFIG } from '@/lib/registries';
 
 export function Footer() {
   const [email, setEmail] = React.useState('');
+  const { brand, footerLinks, social, contact, copyright, logos } = SITE_CONFIG;
 
   const handleNewsletterSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -52,32 +27,41 @@ export function Footer() {
             {/* Company Info */}
             <div className="lg:col-span-2">
               <Link href="/" className="inline-flex items-center space-x-2">
-                <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary">
-                  <span className="text-xl font-bold text-primary-foreground">RM</span>
-                </div>
-                <span className="text-xl font-bold text-primary">Royal Mulch</span>
+                <Image
+                  src={logos.primary}
+                  alt={`${brand.name} logo`}
+                  width={48}
+                  height={48}
+                  className="h-12 w-12 object-contain"
+                />
+                <span className="text-xl font-bold text-primary">{brand.name}</span>
               </Link>
               <p className="mt-4 text-sm text-muted-foreground max-w-xs">
-                Lancaster, OH's premier landscaping supply and service provider.
-                Quality products, expert service, since 1995.
+                {brand.description}
               </p>
               <div className="mt-6 flex space-x-4">
                 <Button variant="ghost" size="icon" asChild>
-                  <Link href="https://facebook.com/royalmulch" target="_blank" rel="noopener noreferrer">
+                  <Link href={social.facebook} target="_blank" rel="noopener noreferrer">
                     <Facebook className="h-5 w-5" />
                     <span className="sr-only">Facebook</span>
                   </Link>
                 </Button>
                 <Button variant="ghost" size="icon" asChild>
-                  <Link href="https://instagram.com/royalmulch" target="_blank" rel="noopener noreferrer">
+                  <Link href={social.instagram} target="_blank" rel="noopener noreferrer">
                     <Instagram className="h-5 w-5" />
                     <span className="sr-only">Instagram</span>
                   </Link>
                 </Button>
                 <Button variant="ghost" size="icon" asChild>
-                  <Link href="https://twitter.com/royalmulch" target="_blank" rel="noopener noreferrer">
+                  <Link href={social.twitter} target="_blank" rel="noopener noreferrer">
                     <Twitter className="h-5 w-5" />
                     <span className="sr-only">Twitter</span>
+                  </Link>
+                </Button>
+                <Button variant="ghost" size="icon" asChild>
+                  <Link href={social.youtube} target="_blank" rel="noopener noreferrer">
+                    <Youtube className="h-5 w-5" />
+                    <span className="sr-only">YouTube</span>
                   </Link>
                 </Button>
               </div>
@@ -179,14 +163,14 @@ export function Footer() {
               <Phone className="h-5 w-5 text-primary mt-0.5" />
               <div>
                 <p className="text-sm font-medium">Phone</p>
-                <p className="text-sm text-muted-foreground">(740) 654-5555</p>
+                <p className="text-sm text-muted-foreground">{contact.phone}</p>
               </div>
             </div>
             <div className="flex items-start gap-3">
               <Mail className="h-5 w-5 text-primary mt-0.5" />
               <div>
                 <p className="text-sm font-medium">Email</p>
-                <p className="text-sm text-muted-foreground">info@royalmulch.com</p>
+                <p className="text-sm text-muted-foreground">{contact.email}</p>
               </div>
             </div>
             <div className="flex items-start gap-3">
@@ -194,7 +178,7 @@ export function Footer() {
               <div>
                 <p className="text-sm font-medium">Address</p>
                 <p className="text-sm text-muted-foreground">
-                  123 Mulch Lane, Lancaster, OH 43130
+                  {contact.address}
                 </p>
               </div>
             </div>
@@ -205,7 +189,7 @@ export function Footer() {
         <div className="border-t py-6">
           <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
             <p className="text-sm text-muted-foreground">
-              © {new Date().getFullYear()} Royal Mulch. All rights reserved.
+              {copyright.text}
             </p>
             <div className="flex gap-6">
               <Link href="/privacy" className="text-sm text-muted-foreground hover:text-primary">

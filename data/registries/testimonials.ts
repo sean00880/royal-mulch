@@ -1,11 +1,12 @@
 // Royal Mulch Testimonials Registry
-// TypeScript data for customer testimonials
+// TypeScript data for customer testimonials (no stock photos - uses initials)
 
 export interface Testimonial {
   id: number;
   name: string;
   role: string;
-  image: string;
+  initials: string;
+  initialsColor: string;
   rating: number;
   quote: string;
   location?: string;
@@ -14,47 +15,52 @@ export interface Testimonial {
 export const testimonials: Testimonial[] = [
   {
     id: 1,
-    name: 'Humble D. Dow',
+    name: 'James D.',
     role: 'Homeowner',
-    image: '/assets/img/testimonial/author-2.jpg',
+    initials: 'JD',
+    initialsColor: '#2d5a27',
     rating: 5,
-    quote: 'Royal Mulch transformed our backyard into a beautiful oasis. The quality of their black mulch is unmatched, and the delivery was prompt and professional.',
+    quote: 'Royal Mulch transformed our front yard. We ordered 8 yards of black mulch delivered and it was there the same afternoon. The quality is incredible — fine texture, rich color that lasted all summer.',
     location: 'Lancaster, OH',
   },
   {
     id: 2,
-    name: 'Rosalina D. William',
+    name: 'Rachel M.',
     role: 'Property Manager',
-    image: '/assets/img/testimonial/author-3.jpg',
+    initials: 'RM',
+    initialsColor: '#8b5a2b',
     rating: 5,
-    quote: 'One of the best gardening tips you will ever get is to plan your new garden near a water source. Royal Mulch\'s team provided expert advice that made all the difference.',
+    quote: 'I manage several commercial properties and Royal Mulch handles all our mulch needs. Their delivery is always on time and the pricing beats everyone else in the county. Highly recommend.',
     location: 'Carroll, OH',
   },
   {
     id: 3,
-    name: 'Miranda H. Halim',
-    role: 'Business Owner',
-    image: '/assets/img/testimonial/author-4.jpg',
+    name: 'Tom K.',
+    role: 'Landscaper',
+    initials: 'TK',
+    initialsColor: '#5c3a1e',
     rating: 5,
-    quote: 'When starting a garden, one of the top pieces of advice is to invest in soil that is nutrient rich and well drained. Royal Mulch delivered exactly what we needed.',
+    quote: 'As a professional landscaper, I need consistent quality. Royal Mulch delivers every time. Their brown mulch has the perfect color and texture my clients love. Best supplier in Fairfield County.',
     location: 'Pickerington, OH',
   },
   {
     id: 4,
-    name: 'Yellow M. Milso',
-    role: 'Landscape Designer',
-    image: '/assets/img/testimonial/author-1.jpg',
+    name: 'Linda S.',
+    role: 'Homeowner',
+    initials: 'LS',
+    initialsColor: '#4a8f42',
     rating: 5,
-    quote: 'I recommend Royal Mulch to all my clients. Their brown mulch has that perfect natural look that complements any landscape design.',
+    quote: 'We picked up 4 yards of natural mulch on Saturday morning. They loaded our trailer in minutes and the mulch looks beautiful in our garden beds. Great prices too.',
     location: 'Baltimore, OH',
   },
   {
     id: 5,
-    name: 'Dillon M. Milso',
-    role: 'Homeowner',
-    image: '/assets/img/testimonial/author-2.jpg',
-    rating: 4,
-    quote: 'Started with a simple idea: Deliver quality, well-designed landscape for home, business and public spaces. Royal Mulch helped make it happen.',
+    name: 'David H.',
+    role: 'Business Owner',
+    initials: 'DH',
+    initialsColor: '#c4845a',
+    rating: 5,
+    quote: 'Used Royal Mulch for our office landscaping refresh. Same-day delivery, fair pricing, and the mulch looks fantastic. Our building never looked better.',
     location: 'Circleville, OH',
   },
 ];

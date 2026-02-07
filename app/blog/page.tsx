@@ -1,6 +1,5 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
-import Image from 'next/image';
 import { ArrowRight, Calendar, User, Eye, MessageCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
@@ -8,9 +7,9 @@ import { blogArticles } from '@/data/registries/blogs';
 import { Registry } from '@/data/registry';
 
 export const metadata: Metadata = {
-  title: 'Blog | Royal Mulch - Lancaster, OH',
+  title: 'Mulch Tips & Guides | Royal Mulch Blog - Lancaster, OH',
   description:
-    'Tips, guides, and articles about mulching, landscaping, and gardening in Central Ohio.',
+    'Expert tips, guides, and articles about mulching in Central Ohio. Learn about mulch types, seasonal timing, and delivery options.',
 };
 
 export default function BlogPage() {
@@ -21,10 +20,10 @@ export default function BlogPage() {
         <div className="container-custom">
           <div className="max-w-2xl">
             <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
-              Our Blog
+              Mulch Tips & Guides
             </h1>
             <p className="text-lg text-white/90">
-              Tips, guides, and articles to help you create and maintain a beautiful landscape.
+              Expert advice on mulching, seasonal tips, and landscape ideas for Central Ohio homeowners.
             </p>
           </div>
         </div>
@@ -40,15 +39,14 @@ export default function BlogPage() {
                 {blogArticles.map((article) => (
                   <Card key={article.id} className="overflow-hidden group card-hover">
                     <div className="md:flex">
-                      <div className="relative md:w-80 h-52 md:h-auto overflow-hidden flex-shrink-0">
-                        <Image
-                          src={article.image}
-                          alt={article.title}
-                          fill
-                          className="object-cover transition-transform duration-500 group-hover:scale-110"
-                        />
+                      {/* Color block instead of stock image */}
+                      <div
+                        className="relative md:w-80 h-52 md:h-auto flex-shrink-0 flex items-end p-6"
+                        style={{ backgroundColor: article.color }}
+                      >
+                        <div className="absolute inset-0 opacity-20 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPjxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4xKSIvPjwvc3ZnPg==')]" />
                         <div className="absolute top-4 left-4">
-                          <span className="px-3 py-1 bg-primary text-white text-xs font-medium rounded-full">
+                          <span className="px-3 py-1 bg-white/20 text-white text-xs font-medium rounded-full backdrop-blur-sm">
                             {article.category}
                           </span>
                         </div>
@@ -121,12 +119,12 @@ export default function BlogPage() {
               {/* CTA Card */}
               <Card className="bg-primary text-white">
                 <CardContent className="p-6">
-                  <h3 className="text-xl font-semibold mb-4">Need Help?</h3>
+                  <h3 className="text-xl font-semibold mb-4">Ready to Order?</h3>
                   <p className="text-white/90 mb-6">
-                    Have questions about mulching or landscaping? We're here to help!
+                    Get premium mulch delivered or stop by our Lancaster yard for pickup.
                   </p>
                   <Button asChild variant="secondary" className="w-full">
-                    <Link href="/contact">Contact Us</Link>
+                    <Link href="/quote">Get a Quote</Link>
                   </Button>
                 </CardContent>
               </Card>

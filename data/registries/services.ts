@@ -1,5 +1,5 @@
 // Royal Mulch Services Registry
-// TypeScript data for all service/mulch types with rich content
+// TypeScript data for mulch products with pricing and delivery info
 
 export interface Service {
   id: string;
@@ -11,7 +11,13 @@ export interface Service {
   backgroundImage: string;
   icon: string;
   features: string[];
-  category: 'mulch' | 'landscaping' | 'maintenance';
+  category: 'mulch';
+  mulchColor: string;
+  pricing: {
+    pickupPerYard: number;
+    deliveryPerYard: number;
+    minimumDelivery: number;
+  };
 }
 
 export const mulchServices: Service[] = [
@@ -39,6 +45,12 @@ export const mulchServices: Service[] = [
       'Perfect for Central Ohio climate',
     ],
     category: 'mulch',
+    mulchColor: '#1a1a1a',
+    pricing: {
+      pickupPerYard: 32,
+      deliveryPerYard: 42,
+      minimumDelivery: 3,
+    },
   },
   {
     id: 'brown-mulch',
@@ -64,6 +76,12 @@ export const mulchServices: Service[] = [
       'All-season durability',
     ],
     category: 'mulch',
+    mulchColor: '#5c3a1e',
+    pricing: {
+      pickupPerYard: 30,
+      deliveryPerYard: 40,
+      minimumDelivery: 3,
+    },
   },
   {
     id: 'natural-mulch',
@@ -89,187 +107,21 @@ export const mulchServices: Service[] = [
       'Authentic earthy aesthetic',
     ],
     category: 'mulch',
+    mulchColor: '#c4a882',
+    pricing: {
+      pickupPerYard: 28,
+      deliveryPerYard: 38,
+      minimumDelivery: 3,
+    },
   },
 ];
 
-export const landscapingServices: Service[] = [
-  {
-    id: 'mulch-installation',
-    slug: 'mulch-installation',
-    title: 'Mulch Installation',
-    shortDescription: 'Professional mulch installation services for residential and commercial properties.',
-    fullDescription: [
-      'Let our expert team handle all your mulch installation needs. We ensure proper depth, coverage, and finishing for a professional look.',
-      'Our installation services include bed preparation, weed barrier installation if needed, and precise mulch application.',
-    ],
-    image: '/assets/img/service/service-img-st2-1.jpg',
-    backgroundImage: '/assets/img/bg/services-title-bg.jpg',
-    icon: 'flaticon-gardening-1',
-    features: [
-      'Professional installation',
-      'Bed preparation included',
-      'Weed barrier options',
-      'Commercial & residential',
-    ],
-    category: 'landscaping',
-  },
-  {
-    id: 'landscape-design',
-    slug: 'landscape-design',
-    title: 'Landscape Design',
-    shortDescription: 'Custom landscape design and planning to transform your outdoor space.',
-    fullDescription: [
-      'Our landscape design services help you envision and create the perfect outdoor environment.',
-      'From concept to completion, we work with you to design a landscape that fits your lifestyle and budget.',
-    ],
-    image: '/assets/img/service/service-img-st2-2.jpg',
-    backgroundImage: '/assets/img/bg/services-title-bg.jpg',
-    icon: 'flaticon-house',
-    features: [
-      'Custom design plans',
-      'Plant selection guidance',
-      'Hardscape integration',
-      'Budget-friendly options',
-    ],
-    category: 'landscaping',
-  },
-  {
-    id: 'tree-services',
-    slug: 'tree-services',
-    title: 'Tree Services',
-    shortDescription: 'Expert tree trimming, removal, and maintenance services.',
-    fullDescription: [
-      'Maintain the health and beauty of your trees with our professional tree services.',
-      'We offer trimming, pruning, removal, and stump grinding services.',
-    ],
-    image: '/assets/img/service/service-img-st2-3.jpg',
-    backgroundImage: '/assets/img/bg/services-title-bg.jpg',
-    icon: 'flaticon-farming-and-gardening',
-    features: [
-      'Tree trimming & pruning',
-      'Safe tree removal',
-      'Stump grinding',
-      'Emergency services',
-    ],
-    category: 'landscaping',
-  },
-  {
-    id: 'hardscaping',
-    slug: 'hardscaping',
-    title: 'Hardscaping',
-    shortDescription: 'Patios, walkways, retaining walls, and other hardscape features.',
-    fullDescription: [
-      'Enhance your outdoor living space with beautiful hardscape features.',
-      'We design and install patios, walkways, retaining walls, and decorative borders.',
-    ],
-    image: '/assets/img/service/service-img-st2-4.jpg',
-    backgroundImage: '/assets/img/bg/services-title-bg.jpg',
-    icon: 'flaticon-flower-with-rounded-petals',
-    features: [
-      'Patio installation',
-      'Walkway design',
-      'Retaining walls',
-      'Decorative borders',
-    ],
-    category: 'landscaping',
-  },
-];
-
-export const maintenanceServices: Service[] = [
-  {
-    id: 'lawn-maintenance',
-    slug: 'lawn-maintenance',
-    title: 'Lawn Maintenance',
-    shortDescription: 'Regular lawn care and maintenance to keep your yard looking great.',
-    fullDescription: [
-      'Keep your lawn healthy and beautiful with our regular maintenance services.',
-      'Mowing, edging, fertilization, and weed control programs available.',
-    ],
-    image: '/assets/img/service/service-img-st2-1.jpg',
-    backgroundImage: '/assets/img/bg/services-title-bg.jpg',
-    icon: 'flaticon-gardening-1',
-    features: [
-      'Weekly mowing',
-      'Edging & trimming',
-      'Fertilization programs',
-      'Weed control',
-    ],
-    category: 'maintenance',
-  },
-  {
-    id: 'spring-cleanup',
-    slug: 'spring-cleanup',
-    title: 'Spring Cleanup',
-    shortDescription: 'Spring yard cleanup services to prepare your landscape for the growing season.',
-    fullDescription: [
-      'Start the season right with our comprehensive spring cleanup services.',
-      'Debris removal, bed cleanup, mulch refresh, and lawn preparation.',
-    ],
-    image: '/assets/img/service/service-img-st2-2.jpg',
-    backgroundImage: '/assets/img/bg/services-title-bg.jpg',
-    icon: 'flaticon-house',
-    features: [
-      'Debris removal',
-      'Bed cleanup',
-      'Mulch refresh',
-      'Lawn prep',
-    ],
-    category: 'maintenance',
-  },
-  {
-    id: 'fall-cleanup',
-    slug: 'fall-cleanup',
-    title: 'Fall Cleanup',
-    shortDescription: 'Fall leaf removal and yard prep for the winter months.',
-    fullDescription: [
-      'Prepare your landscape for winter with our fall cleanup services.',
-      'Leaf removal, final mowing, bed preparation, and winterization.',
-    ],
-    image: '/assets/img/service/service-img-st2-3.jpg',
-    backgroundImage: '/assets/img/bg/services-title-bg.jpg',
-    icon: 'flaticon-farming-and-gardening',
-    features: [
-      'Leaf removal',
-      'Final mowing',
-      'Bed prep',
-      'Winterization',
-    ],
-    category: 'maintenance',
-  },
-  {
-    id: 'snow-removal',
-    slug: 'snow-removal',
-    title: 'Snow Removal',
-    shortDescription: 'Winter snow removal services for residential and commercial properties.',
-    fullDescription: [
-      'Stay safe and accessible during winter with our snow removal services.',
-      'Plowing, shoveling, salting, and 24/7 emergency services available.',
-    ],
-    image: '/assets/img/service/service-img-st2-4.jpg',
-    backgroundImage: '/assets/img/bg/services-title-bg.jpg',
-    icon: 'flaticon-flower-with-rounded-petals',
-    features: [
-      'Plowing services',
-      'Shoveling',
-      'Salt application',
-      '24/7 availability',
-    ],
-    category: 'maintenance',
-  },
-];
-
-// Combined services for easy access
-export const allServices: Service[] = [
-  ...mulchServices,
-  ...landscapingServices,
-  ...maintenanceServices,
-];
+// All services is just mulch services now
+export const allServices: Service[] = mulchServices;
 
 // Helper functions
 export const servicesRegistry = {
   getMulchServices: () => mulchServices,
-  getLandscapingServices: () => landscapingServices,
-  getMaintenanceServices: () => maintenanceServices,
   getAllServices: () => allServices,
   getBySlug: (slug: string) => allServices.find(s => s.slug === slug),
   getByCategory: (category: Service['category']) => allServices.filter(s => s.category === category),

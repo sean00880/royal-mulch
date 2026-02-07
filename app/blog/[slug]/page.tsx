@@ -1,8 +1,7 @@
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
-import Image from 'next/image';
-import { ArrowLeft, ArrowRight, Calendar, User, Eye, MessageCircle, Share2 } from 'lucide-react';
+import { ArrowLeft, ArrowRight, Calendar, User, Eye, Share2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { blogsRegistry, blogArticles } from '@/data/registries/blogs';
@@ -87,15 +86,15 @@ export default async function BlogDetailPage({
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
             {/* Main Content */}
             <div className="lg:col-span-2">
-              {/* Featured Image */}
-              <div className="relative aspect-video rounded-xl overflow-hidden mb-8">
-                <Image
-                  src={article.image}
-                  alt={article.title}
-                  fill
-                  className="object-cover"
-                  priority
-                />
+              {/* Color block header instead of featured image */}
+              <div
+                className="relative aspect-video rounded-xl overflow-hidden mb-8 flex items-end p-8"
+                style={{ backgroundColor: article.color }}
+              >
+                <div className="absolute inset-0 opacity-20 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPjxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4xKSIvPjwvc3ZnPg==')]" />
+                <h2 className="text-2xl md:text-3xl font-bold text-white relative z-10">
+                  {article.title}
+                </h2>
               </div>
 
               {/* Article Body */}
@@ -143,12 +142,15 @@ export default async function BlogDetailPage({
               {/* Author Card */}
               <Card className="mb-6">
                 <CardContent className="p-6 text-center">
-                  <div className="w-20 h-20 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
-                    <span className="text-3xl">👨‍🌾</span>
+                  <div
+                    className="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4 text-white font-bold text-2xl"
+                    style={{ backgroundColor: '#2d5a27' }}
+                  >
+                    RM
                   </div>
                   <h3 className="text-lg font-semibold">{article.author}</h3>
                   <p className="text-muted-foreground text-sm">
-                    Sharing tips and insights about landscaping and gardening in Central Ohio.
+                    Sharing mulch tips and insights for Central Ohio homeowners since 1995.
                   </p>
                 </CardContent>
               </Card>
@@ -164,14 +166,10 @@ export default async function BlogDetailPage({
                         href={`/blog/${related.slug}`}
                         className="flex gap-4 group"
                       >
-                        <div className="relative w-20 h-20 rounded-lg overflow-hidden flex-shrink-0">
-                          <Image
-                            src={related.image}
-                            alt={related.title}
-                            fill
-                            className="object-cover transition-transform duration-300 group-hover:scale-110"
-                          />
-                        </div>
+                        <div
+                          className="w-20 h-20 rounded-lg flex-shrink-0"
+                          style={{ backgroundColor: related.color }}
+                        />
                         <div>
                           <h4 className="font-semibold line-clamp-2 group-hover:text-primary transition-colors">
                             {related.title}

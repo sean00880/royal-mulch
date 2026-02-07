@@ -13,8 +13,8 @@ interface CTASectionProps {
 }
 
 export function CTASection({
-  title = 'Ready to Transform Your Landscape?',
-  description = 'Get a free quote for your project. We offer competitive pricing and expert service.',
+  title = 'Ready to Order Your Mulch?',
+  description = 'Get a free delivery quote or stop by our Lancaster yard for pickup. Same-day delivery available.',
   variant = 'primary',
 }: CTASectionProps) {
   const bgClass =

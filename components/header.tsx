@@ -2,24 +2,24 @@
 
 import * as React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
-import { Menu, X, Phone } from 'lucide-react';
+import { Menu, X, Phone, Sun, Moon } from 'lucide-react';
+import { useTheme } from 'next-themes';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { cn } from '@/lib/utils';
-
-const navigation = [
-  { name: 'Home', href: '/' },
-  { name: 'About', href: '/about' },
-  { name: 'Services', href: '/services' },
-  { name: 'Portfolio', href: '/portfolio' },
-  { name: 'Blog', href: '/blog' },
-  { name: 'Contact', href: '/contact' },
-];
+import { SITE_CONFIG } from '@/lib/registries';
 
 export function Header() {
   const pathname = usePathname();
   const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false);
+  const { theme, setTheme } = useTheme();
+  const [mounted, setMounted] = React.useState(false);
+
+  React.useEffect(() => setMounted(true), []);
+
+  const { brand, navigation, contact, logos } = SITE_CONFIG;
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -27,12 +27,17 @@ export function Header() {
         {/* Logo */}
         <div className="flex items-center">
           <Link href="/" className="flex items-center space-x-2">
-            <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary">
-              <span className="text-xl font-bold text-primary-foreground">RM</span>
-            </div>
+            <Image
+              src={logos.primary}
+              alt={`${brand.name} logo`}
+              width={48}
+              height={48}
+              className="h-12 w-12 object-contain"
+              priority
+            />
             <div className="hidden md:block">
-              <span className="text-xl font-bold text-primary">Royal Mulch</span>
-              <p className="text-xs text-muted-foreground">Premium Landscaping</p>
+              <span className="text-xl font-bold text-primary">{brand.name}</span>
+              <p className="text-xs text-muted-foreground">{brand.tagline.split(' & ')[0]}</p>
             </div>
           </Link>
         </div>
@@ -59,8 +64,22 @@ export function Header() {
         <div className="hidden md:flex items-center gap-4">
           <div className="flex items-center gap-2 text-sm text-muted-foreground">
             <Phone className="h-4 w-4" />
-            <span>(740) 654-5555</span>
+            <span>{contact.phone}</span>
           </div>
+          {mounted && (
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+              aria-label="Toggle theme"
+            >
+              {theme === 'dark' ? (
+                <Sun className="h-5 w-5" />
+              ) : (
+                <Moon className="h-5 w-5" />
+              )}
+            </Button>
+          )}
           <Button asChild size="sm" className="button-hover">
             <Link href="/quote">Get Quote</Link>
           </Button>
@@ -98,9 +117,22 @@ export function Header() {
                 ))}
                 <div className="flex items-center gap-2 text-sm text-muted-foreground pt-4 border-t">
                   <Phone className="h-4 w-4" />
-                  <span>(740) 654-5555</span>
+                  <span>{contact.phone}</span>
                 </div>
-                <Button asChild className="w-full mt-4" onClick={() => setMobileMenuOpen(false)}>
+                {mounted && (
+                  <Button
+                    variant="outline"
+                    className="w-full mt-4"
+                    onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+                  >
+                    {theme === 'dark' ? (
+                      <><Sun className="h-4 w-4 mr-2" /> Light Mode</>
+                    ) : (
+                      <><Moon className="h-4 w-4 mr-2" /> Dark Mode</>
+                    )}
+                  </Button>
+                )}
+                <Button asChild className="w-full mt-2" onClick={() => setMobileMenuOpen(false)}>
                   <Link href="/quote">Get Quote</Link>
                 </Button>
               </nav>
