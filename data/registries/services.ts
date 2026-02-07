@@ -33,7 +33,7 @@ export const mulchServices: Service[] = [
       'What sets Royal Mulch apart is our commitment to quality. Our black mulch is carefully processed and dyed to maintain its color and texture, ensuring long-lasting beauty. As a local business in Central Ohio, we understand the unique requirements of our region\'s landscapes. When you choose Royal Mulch\'s black mulch, you\'re investing in a product specifically designed to thrive in our climate.',
       'Discover the difference that premium black mulch from Royal Mulch can make for your landscape. Elevate your curb appeal, simplify your gardening routine, and enjoy a stunning outdoor space that reflects your style. Explore our range of mulch products today and experience the Royal Mulch advantage.',
     ],
-    image: '/assets/img/service/service-3-img1.jpg',
+    image: '/assets/img/bg/black.jpg',
     backgroundImage: '/assets/img/bg/black.jpg',
     icon: 'flaticon-farmer',
     features: [
@@ -64,7 +64,7 @@ export const mulchServices: Service[] = [
       'At Royal Mulch, we\'re committed to sustainability. Our brown mulch is sourced from responsibly managed materials and processed with care to ensure its quality. We understand the demands of Central Ohio\'s climate, and our mulch is designed to withstand its challenges while providing the nourishment your plants need.',
       'Choosing Royal Mulch\'s brown mulch means investing in a product that adds value to your landscape and eases your gardening efforts. Elevate your outdoor space, create a natural and inviting atmosphere, and experience the difference that quality mulch can make. Explore our range of mulch options today and take a step toward a more beautiful landscape.',
     ],
-    image: '/assets/img/service/service-3-img2.jpg',
+    image: '/assets/img/bg/brown.jpg',
     backgroundImage: '/assets/img/bg/brown.jpg',
     icon: 'flaticon-gardening',
     features: [
@@ -95,7 +95,7 @@ export const mulchServices: Service[] = [
       'At Royal Mulch, we understand Central Ohio\'s unique climate and landscape requirements. Our natural mulch is carefully selected and processed to meet these demands, ensuring that your plants receive the support they need to flourish.',
       'Choose Royal Mulch\'s natural mulch to create a serene, inviting, and effortlessly beautiful landscape. Embrace the elegance of nature, simplify your gardening routine, and elevate your outdoor space. Explore our range of mulch products today and experience the Royal Mulch difference for yourself.',
     ],
-    image: '/assets/img/service/service-3-img3.jpg',
+    image: '/assets/img/bg/natural.jpg',
     backgroundImage: '/assets/img/bg/natural.jpg',
     icon: 'flaticon-farming-and-gardening',
     features: [

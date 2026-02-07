@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
+import Image from 'next/image';
 import { ArrowLeft, ArrowRight, Calendar, User, Eye, Share2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
@@ -86,15 +87,15 @@ export default async function BlogDetailPage({
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
             {/* Main Content */}
             <div className="lg:col-span-2">
-              {/* Color block header instead of featured image */}
-              <div
-                className="relative aspect-video rounded-xl overflow-hidden mb-8 flex items-end p-8"
-                style={{ backgroundColor: article.color }}
-              >
-                <div className="absolute inset-0 opacity-20 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPjxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4xKSIvPjwvc3ZnPg==')]" />
-                <h2 className="text-2xl md:text-3xl font-bold text-white relative z-10">
-                  {article.title}
-                </h2>
+              {/* Featured image */}
+              <div className="relative aspect-video rounded-xl overflow-hidden mb-8">
+                <Image
+                  src={article.image}
+                  alt={article.title}
+                  fill
+                  className="object-cover"
+                  priority
+                />
               </div>
 
               {/* Article Body */}
@@ -166,10 +167,14 @@ export default async function BlogDetailPage({
                         href={`/blog/${related.slug}`}
                         className="flex gap-4 group"
                       >
-                        <div
-                          className="w-20 h-20 rounded-lg flex-shrink-0"
-                          style={{ backgroundColor: related.color }}
-                        />
+                        <div className="w-20 h-20 rounded-lg flex-shrink-0 relative overflow-hidden">
+                          <Image
+                            src={related.image}
+                            alt={related.title}
+                            fill
+                            className="object-cover"
+                          />
+                        </div>
                         <div>
                           <h4 className="font-semibold line-clamp-2 group-hover:text-primary transition-colors">
                             {related.title}

@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { ArrowRight, Phone } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { TextEffect } from '@/components/ui/text-effect';
@@ -17,12 +18,18 @@ export function CTASection({
   description = 'Get a free delivery quote or stop by our Lancaster yard for pickup. Same-day delivery available.',
   variant = 'primary',
 }: CTASectionProps) {
-  const bgClass =
-    variant === 'primary' ? 'bg-gradient-primary' : 'bg-gradient-secondary';
-
   return (
-    <section className={`section-padding ${bgClass}`}>
-      <div className="container-custom">
+    <section className="relative section-padding overflow-hidden">
+      <div className="absolute inset-0 z-0">
+        <Image
+          src="/assets/img/bg/page-title-bg.jpg"
+          alt="Premium mulch"
+          fill
+          className="object-cover"
+        />
+        <div className="absolute inset-0 bg-black/70" />
+      </div>
+      <div className="container-custom relative z-10">
         <div className="mx-auto max-w-3xl text-center">
           <TextEffect
             preset="fade-in-blur"

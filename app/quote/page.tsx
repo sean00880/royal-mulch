@@ -3,6 +3,7 @@
 import { Suspense, useState } from 'react';
 import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
+import Image from 'next/image';
 import { Phone, Mail, Check, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
@@ -204,10 +205,14 @@ function QuoteFormContent() {
                                   : 'border-muted hover:border-primary/50'
                               }`}
                             >
-                              <div
-                                className="w-full h-12 rounded mb-3"
-                                style={{ backgroundColor: service.mulchColor }}
-                              />
+                              <div className="relative w-full h-16 rounded overflow-hidden mb-3">
+                                <Image
+                                  src={service.backgroundImage}
+                                  alt={service.title}
+                                  fill
+                                  className="object-cover"
+                                />
+                              </div>
                               <p className="font-medium text-sm">{service.title}</p>
                               <p className="text-xs text-muted-foreground mt-1">
                                 From ${service.pricing.pickupPerYard}/yard

@@ -195,11 +195,14 @@ export default async function ServiceDetailPage({
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {otherMulch.map((related) => (
                 <Card key={related.id} className="overflow-hidden group card-hover">
-                  <div
-                    className="relative h-32 flex items-end p-6"
-                    style={{ backgroundColor: related.mulchColor }}
-                  >
-                    <div className="absolute inset-0 opacity-20 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPjxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4xKSIvPjwvc3ZnPg==')]" />
+                  <div className="relative h-32 flex items-end p-6">
+                    <Image
+                      src={related.backgroundImage}
+                      alt={related.title}
+                      fill
+                      className="object-cover"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
                     <h3 className="text-xl font-bold text-white relative z-10">{related.title}</h3>
                   </div>
                   <CardContent className="p-4">

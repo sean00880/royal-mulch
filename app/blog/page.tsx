@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
+import Image from 'next/image';
 import { ArrowRight, Calendar, User, Eye, MessageCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
@@ -39,13 +40,15 @@ export default function BlogPage() {
                 {blogArticles.map((article) => (
                   <Card key={article.id} className="overflow-hidden group card-hover">
                     <div className="md:flex">
-                      {/* Color block instead of stock image */}
-                      <div
-                        className="relative md:w-80 h-52 md:h-auto flex-shrink-0 flex items-end p-6"
-                        style={{ backgroundColor: article.color }}
-                      >
-                        <div className="absolute inset-0 opacity-20 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPjxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4xKSIvPjwvc3ZnPg==')]" />
-                        <div className="absolute top-4 left-4">
+                      <div className="relative md:w-80 h-52 md:h-auto flex-shrink-0">
+                        <Image
+                          src={article.image}
+                          alt={article.title}
+                          fill
+                          className="object-cover"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+                        <div className="absolute top-4 left-4 z-10">
                           <span className="px-3 py-1 bg-white/20 text-white text-xs font-medium rounded-full backdrop-blur-sm">
                             {article.category}
                           </span>

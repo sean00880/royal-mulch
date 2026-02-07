@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
+import Image from 'next/image';
 import { ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
@@ -36,12 +37,14 @@ export default function ServicesPage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {mulchServices.map((service) => (
               <Card key={service.id} className="overflow-hidden group card-hover">
-                {/* Color block instead of stock image */}
-                <div
-                  className="relative h-48 flex items-end p-6"
-                  style={{ backgroundColor: service.mulchColor }}
-                >
-                  <div className="absolute inset-0 opacity-20 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPjxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4xKSIvPjwvc3ZnPg==')]" />
+                <div className="relative h-48 flex items-end p-6">
+                  <Image
+                    src={service.backgroundImage}
+                    alt={service.title}
+                    fill
+                    className="object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
                   <h3 className="text-2xl font-bold text-white relative z-10">{service.title}</h3>
                 </div>
                 <CardContent className="p-6">

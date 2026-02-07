@@ -2,6 +2,7 @@
 
 import * as React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { mulchServices } from '@/data/registries/services';
@@ -24,12 +25,15 @@ export function MulchProductsSection() {
         <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
           {mulchServices.map((service) => (
             <Card key={service.id} className="group overflow-hidden border-2 hover:border-primary/50 transition-colors">
-              {/* Color block header */}
-              <div
-                className="h-32 relative flex items-end p-6"
-                style={{ backgroundColor: service.mulchColor }}
-              >
-                <div className="absolute inset-0 opacity-20 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPjxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4xKSIvPjwvc3ZnPg==')]" />
+              {/* Mulch image header */}
+              <div className="h-48 relative flex items-end p-6">
+                <Image
+                  src={service.backgroundImage}
+                  alt={service.title}
+                  fill
+                  className="object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
                 <h3 className="text-2xl font-bold text-white relative z-10">{service.title}</h3>
               </div>
 

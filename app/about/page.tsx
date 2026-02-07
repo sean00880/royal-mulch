@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import Image from 'next/image';
 import { Check, Award, Users, Truck, Leaf } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { CTASection, TestimonialsSection } from '@/components/sections';
@@ -38,9 +39,19 @@ const values = [
 export default function AboutPage() {
   return (
     <>
-      {/* Page Header */}
-      <section className="relative py-20 bg-gradient-primary">
-        <div className="container-custom">
+      {/* Page Header with real image */}
+      <section className="relative py-20 overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="/assets/img/bg/services-title-bg.jpg"
+            alt="Royal Mulch yard sign"
+            fill
+            className="object-cover"
+            priority
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/40" />
+        </div>
+        <div className="container-custom relative z-10">
           <div className="max-w-2xl">
             <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
               About Royal Mulch
