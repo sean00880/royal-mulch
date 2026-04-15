@@ -1,7 +1,6 @@
 'use client';
 
 import Link from 'next/link';
-import Image from 'next/image';
 import { ArrowRight, Phone } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { TextEffect } from '@/components/ui/text-effect';
@@ -14,22 +13,16 @@ interface CTASectionProps {
 }
 
 export function CTASection({
-  title = 'Ready to Order Your Mulch?',
-  description = 'Get a free delivery quote or stop by our Lancaster yard for pickup. Same-day delivery available.',
+  title = 'Ready to Transform Your Landscape?',
+  description = 'Get a free quote for your project. Expert service from Central Ohio\'s trusted mulch supplier.',
   variant = 'primary',
 }: CTASectionProps) {
+  const bgClass =
+    variant === 'primary' ? 'bg-gradient-primary' : 'bg-gradient-secondary';
+
   return (
-    <section className="relative section-padding overflow-hidden">
-      <div className="absolute inset-0 z-0">
-        <Image
-          src="/assets/img/bg/page-title-bg.jpg"
-          alt="Premium mulch"
-          fill
-          className="object-cover"
-        />
-        <div className="absolute inset-0 bg-black/70" />
-      </div>
-      <div className="container-custom relative z-10">
+    <section className={`section-padding ${bgClass}`}>
+      <div className="container-custom">
         <div className="mx-auto max-w-3xl text-center">
           <TextEffect
             preset="fade-in-blur"
@@ -69,7 +62,7 @@ export function CTASection({
               variant="outline"
               className="border-white text-white hover:bg-white/10"
             >
-              <Link href="tel:+17406545555">
+              <Link href="tel:+16145820234">
                 <Phone className="mr-2 h-5 w-5" /> Call Us Now
               </Link>
             </Button>

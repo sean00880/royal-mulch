@@ -1,7 +1,7 @@
 'use client';
 
-import Link from 'next/link';
 import Image from 'next/image';
+import Link from 'next/link';
 import { ArrowRight, Calendar, User } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
@@ -52,22 +52,18 @@ export function BlogSection({
         >
           {articles.map((article) => (
             <Card key={article.id} className="overflow-hidden group card-hover">
-              <div className="relative h-52 flex items-end p-6">
+              <div className="relative h-52 overflow-hidden">
                 <Image
                   src={article.image}
                   alt={article.title}
                   fill
-                  className="object-cover"
+                  className="object-cover transition-transform duration-500 group-hover:scale-110"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
-                <div className="absolute top-4 left-4 z-10">
-                  <span className="px-3 py-1 bg-white/20 text-white text-xs font-medium rounded-full backdrop-blur-sm">
+                <div className="absolute top-4 left-4">
+                  <span className="px-3 py-1 bg-primary text-white text-xs font-medium rounded-full">
                     {article.category}
                   </span>
                 </div>
-                <h3 className="text-lg font-semibold text-white relative z-10 line-clamp-2">
-                  {article.title}
-                </h3>
               </div>
               <CardContent className="p-6">
                 <div className="flex items-center gap-4 text-sm text-muted-foreground mb-3">
@@ -80,6 +76,9 @@ export function BlogSection({
                     {article.date}
                   </span>
                 </div>
+                <h3 className="text-xl font-semibold mb-3 line-clamp-2 group-hover:text-primary transition-colors">
+                  <Link href={`/blog/${article.slug}`}>{article.title}</Link>
+                </h3>
                 <p className="text-muted-foreground mb-4 line-clamp-2">
                   {article.excerpt}
                 </p>

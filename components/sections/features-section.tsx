@@ -1,10 +1,43 @@
 'use client';
 
+import { Leaf, Truck, Shield, Star, Clock, MapPin } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { AnimatedGroup } from '@/components/ui/animated-group';
 import { TextEffect } from '@/components/ui/text-effect';
 import { motion } from 'motion/react';
-import { FEATURES_REGISTRY } from '@/lib/registries';
+
+const features = [
+  {
+    icon: Leaf,
+    title: 'Premium Quality',
+    description: '100% organic mulch and landscaping materials sourced from trusted suppliers.',
+  },
+  {
+    icon: Truck,
+    title: 'Fast Delivery',
+    description: 'Same-day delivery available in Lancaster and surrounding areas.',
+  },
+  {
+    icon: Shield,
+    title: 'Satisfaction Guaranteed',
+    description: "Not happy? We'll make it right. Your satisfaction is our priority.",
+  },
+  {
+    icon: Star,
+    title: 'Expert Service',
+    description: '5-star Google reviews and A+ BBB rating. Quality you can trust.',
+  },
+  {
+    icon: Clock,
+    title: 'Reliable Scheduling',
+    description: 'We show up on time, every time. Count on us for your projects.',
+  },
+  {
+    icon: MapPin,
+    title: 'Locally Owned',
+    description: 'Proudly serving Central Ohio from our Lancaster yard. A+ BBB rated.',
+  },
+];
 
 interface FeaturesSectionProps {
   title?: string;
@@ -13,12 +46,10 @@ interface FeaturesSectionProps {
 }
 
 export function FeaturesSection({
-  title = FEATURES_REGISTRY.sectionDefaults.title,
-  subtitle = FEATURES_REGISTRY.sectionDefaults.subtitle,
-  description = FEATURES_REGISTRY.sectionDefaults.description,
+  title = 'Why Choose Royal Mulch?',
+  subtitle = 'Our Promise',
+  description = "We're committed to providing the best quality products and services in Lancaster, OH.",
 }: FeaturesSectionProps) {
-  const features = FEATURES_REGISTRY.whyChooseUs;
-
   return (
     <section className="section-padding">
       <div className="container-custom">
@@ -50,15 +81,15 @@ export function FeaturesSection({
           </motion.p>
         </div>
 
-        {/* Features Grid with enhanced blur-slide animation */}
+        {/* Features Grid */}
         <AnimatedGroup
-          preset="blur-slide"
+          preset="slide"
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
         >
           {features.map((feature) => (
-            <Card key={feature.title} className="card-hover text-center group">
+            <Card key={feature.title} className="card-hover text-center">
               <CardContent className="p-8">
-                <div className="mx-auto w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors duration-300">
+                <div className="mx-auto w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mb-6">
                   <feature.icon className="h-8 w-8 text-primary" />
                 </div>
                 <h3 className="text-xl font-semibold mb-3">{feature.title}</h3>

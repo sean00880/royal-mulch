@@ -8,9 +8,9 @@ import { blogArticles } from '@/data/registries/blogs';
 import { Registry } from '@/data/registry';
 
 export const metadata: Metadata = {
-  title: 'Mulch Tips & Guides | Royal Mulch Blog - Lancaster, OH',
+  title: 'Blog | Royal Mulch - Lancaster, OH',
   description:
-    'Expert tips, guides, and articles about mulching in Central Ohio. Learn about mulch types, seasonal timing, and delivery options.',
+    'Tips, guides, and articles about mulching, landscaping, and gardening in Central Ohio.',
 };
 
 export default function BlogPage() {
@@ -21,10 +21,10 @@ export default function BlogPage() {
         <div className="container-custom">
           <div className="max-w-2xl">
             <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
-              Mulch Tips & Guides
+              Our Blog
             </h1>
             <p className="text-lg text-white/90">
-              Expert advice on mulching, seasonal tips, and landscape ideas for Central Ohio homeowners.
+              Tips, guides, and articles to help you create and maintain a beautiful landscape.
             </p>
           </div>
         </div>
@@ -40,16 +40,15 @@ export default function BlogPage() {
                 {blogArticles.map((article) => (
                   <Card key={article.id} className="overflow-hidden group card-hover">
                     <div className="md:flex">
-                      <div className="relative md:w-80 h-52 md:h-auto flex-shrink-0">
+                      <div className="relative md:w-80 h-52 md:h-auto overflow-hidden flex-shrink-0">
                         <Image
                           src={article.image}
                           alt={article.title}
                           fill
-                          className="object-cover"
+                          className="object-cover transition-transform duration-500 group-hover:scale-110"
                         />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
-                        <div className="absolute top-4 left-4 z-10">
-                          <span className="px-3 py-1 bg-white/20 text-white text-xs font-medium rounded-full backdrop-blur-sm">
+                        <div className="absolute top-4 left-4">
+                          <span className="px-3 py-1 bg-primary text-white text-xs font-medium rounded-full">
                             {article.category}
                           </span>
                         </div>
@@ -95,62 +94,42 @@ export default function BlogPage() {
               </div>
             </div>
 
-            {/* Sidebar - Sticky */}
+            {/* Sidebar */}
             <div className="lg:col-span-1">
-              <div className="lg:sticky lg:top-24 space-y-6 transition-all duration-300 ease-out will-change-transform">
-                {/* Organization Card */}
-                <Card>
-                  <CardContent className="p-6 text-center">
-                    <div className="relative w-16 h-16 rounded-full overflow-hidden mx-auto mb-3 ring-2 ring-primary/20">
-                      <Image
-                        src="/assets/img/logo/logo1.png"
-                        alt="Royal Mulch"
-                        fill
-                        className="object-contain p-1"
-                      />
-                    </div>
-                    <h3 className="text-lg font-semibold">Royal Mulch</h3>
-                    <p className="text-muted-foreground text-sm">
-                      Premium mulch delivery &amp; pickup in Lancaster, OH since 1995.
-                    </p>
-                  </CardContent>
-                </Card>
+              {/* Categories */}
+              <Card className="mb-6">
+                <CardContent className="p-6">
+                  <h3 className="text-xl font-semibold mb-4">Categories</h3>
+                  <ul className="space-y-2">
+                    {Registry.blogCategories.map((category) => (
+                      <li key={category.slug}>
+                        <Link
+                          href={`/blog?category=${category.slug}`}
+                          className="flex items-center justify-between py-2 hover:text-primary transition-colors"
+                        >
+                          <span>{category.name}</span>
+                          <span className="text-muted-foreground text-sm">
+                            ({category.count})
+                          </span>
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </CardContent>
+              </Card>
 
-                {/* Categories */}
-                <Card>
-                  <CardContent className="p-6">
-                    <h3 className="text-xl font-semibold mb-4">Categories</h3>
-                    <ul className="space-y-2">
-                      {Registry.blogCategories.map((category) => (
-                        <li key={category.slug}>
-                          <Link
-                            href={`/blog?category=${category.slug}`}
-                            className="flex items-center justify-between py-2 hover:text-primary transition-colors duration-200"
-                          >
-                            <span>{category.name}</span>
-                            <span className="text-muted-foreground text-sm">
-                              ({category.count})
-                            </span>
-                          </Link>
-                        </li>
-                      ))}
-                    </ul>
-                  </CardContent>
-                </Card>
-
-                {/* CTA Card */}
-                <Card className="bg-primary text-white">
-                  <CardContent className="p-6">
-                    <h3 className="text-xl font-semibold mb-4">Ready to Order?</h3>
-                    <p className="text-white/90 mb-6">
-                      Get premium mulch delivered or stop by our Lancaster yard for pickup.
-                    </p>
-                    <Button asChild variant="secondary" className="w-full">
-                      <Link href="/quote">Get a Quote</Link>
-                    </Button>
-                  </CardContent>
-                </Card>
-              </div>
+              {/* CTA Card */}
+              <Card className="bg-primary text-white">
+                <CardContent className="p-6">
+                  <h3 className="text-xl font-semibold mb-4">Need Help?</h3>
+                  <p className="text-white/90 mb-6">
+                    Have questions about mulching or landscaping? We're here to help!
+                  </p>
+                  <Button asChild variant="secondary" className="w-full">
+                    <Link href="/contact">Contact Us</Link>
+                  </Button>
+                </CardContent>
+              </Card>
             </div>
           </div>
         </div>

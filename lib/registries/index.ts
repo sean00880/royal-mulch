@@ -17,25 +17,6 @@ export type { Feature, TrustIndicator } from "./FEATURES_REGISTRY";
 export { SERVICES_REGISTRY, services } from "./SERVICES_REGISTRY";
 export type { Service } from "./SERVICES_REGISTRY";
 
-// Design Tokens Registry (SOTA Typography + Design System)
-export {
-  DESIGN_TOKENS,
-  TYPOGRAPHY,
-  SPACING,
-  COLORS,
-  ANIMATIONS,
-  EFFECTS,
-  BREAKPOINTS,
-} from "./DESIGN_TOKENS";
-export type {
-  Typography,
-  Spacing,
-  Colors,
-  Animations,
-  Effects,
-  DesignTokens,
-} from "./DESIGN_TOKENS";
-
 // Quick access for common operations
 export const QUICK_ACCESS = {
   // Brand
@@ -43,11 +24,11 @@ export const QUICK_ACCESS = {
   tagline: "Premium Mulch Delivery & Pickup",
 
   // Contact
-  phone: "(740) 654-5555",
-  phoneLink: "tel:+17406545555",
+  phone: "(614) 582-0234",
+  phoneLink: "tel:+16145820234",
   email: "info@royalmulch.com",
 
   // Location
-  address: "123 Mulch Lane, Lancaster, OH 43130",
+  address: "3503 Ruble Park Ave, Lancaster, OH 43130",
   serviceArea: "Central Ohio",
 } as const;

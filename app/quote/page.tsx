@@ -1,41 +1,17 @@
 'use client';
 
-import { Suspense, useState } from 'react';
-import { useSearchParams } from 'next/navigation';
+import { useState } from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
 import { Phone, Mail, Check, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
-import { mulchServices } from '@/data/registries/services';
+import { mulchServices, landscapingServices } from '@/data/registries/services';
 import { Registry } from '@/data/registry';
 
-const deliveryOptions = [
-  { id: 'delivery', label: 'Delivery', description: 'We bring it to you (3 yard minimum)' },
-  { id: 'pickup', label: 'Pickup', description: 'Come get it at our Lancaster yard' },
-];
+const allServices = [...mulchServices, ...landscapingServices];
 
 export default function QuotePage() {
-  return (
-    <Suspense fallback={
-      <section className="section-padding">
-        <div className="container-custom">
-          <div className="max-w-3xl mx-auto text-center py-12">
-            <p className="text-muted-foreground">Loading quote form...</p>
-          </div>
-        </div>
-      </section>
-    }>
-      <QuoteFormContent />
-    </Suspense>
-  );
-}
-
-function QuoteFormContent() {
-  const searchParams = useSearchParams();
-  const prefilledYards = searchParams.get('yards') || '';
-
   const [step, setStep] = useState(1);
   const [formData, setFormData] = useState({
     // Contact Info
@@ -45,13 +21,10 @@ function QuoteFormContent() {
     address: '',
     city: '',
     zip: '',
-    // Mulch Selection
-    mulchType: '' as string,
-    yards: prefilledYards,
-    fulfillment: '' as string,
-    // Additional Details
+    // Project Details
+    services: [] as string[],
+    projectDescription: '',
     preferredDate: '',
-    notes: '',
     howHeard: '',
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -66,6 +39,15 @@ function QuoteFormContent() {
     }));
   };
 
+  const handleServiceToggle = (serviceId: string) => {
+    setFormData((prev) => ({
+      ...prev,
+      services: prev.services.includes(serviceId)
+        ? prev.services.filter((s) => s !== serviceId)
+        : [...prev.services, serviceId],
+    }));
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
@@ -77,17 +59,6 @@ function QuoteFormContent() {
 
   const nextStep = () => setStep((prev) => Math.min(prev + 1, 3));
   const prevStep = () => setStep((prev) => Math.max(prev - 1, 1));
-
-  // Calculate estimated cost
-  const selectedMulch = mulchServices.find((s) => s.id === formData.mulchType);
-  const yardsNum = parseFloat(formData.yards) || 0;
-  const isDelivery = formData.fulfillment === 'delivery';
-  const pricePerYard = selectedMulch
-    ? isDelivery
-      ? selectedMulch.pricing.deliveryPerYard
-      : selectedMulch.pricing.pickupPerYard
-    : 0;
-  const estimatedTotal = yardsNum * pricePerYard;
 
   if (isSubmitted) {
     return (
@@ -109,7 +80,7 @@ function QuoteFormContent() {
               </div>
               <h2 className="text-2xl font-bold mb-4">Thank You!</h2>
               <p className="text-muted-foreground mb-8">
-                We&apos;ve received your mulch order request and will get back to you within 24 hours.
+                We've received your quote request and will get back to you within 24 hours.
                 If you need immediate assistance, please call us at {Registry.contactInfo.phone}.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -136,11 +107,11 @@ function QuoteFormContent() {
         <div className="container-custom">
           <div className="max-w-2xl">
             <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
-              Get a Mulch Quote
+              Get a Free Quote
             </h1>
             <p className="text-lg text-white/90">
-              Choose your mulch type, tell us how much you need, and we&apos;ll get you a quote for
-              delivery or pickup. Quick, easy, no obligation.
+              Tell us about your project and we'll provide a detailed quote.
+              No obligation, no pressure.
             </p>
           </div>
         </div>
@@ -168,7 +139,7 @@ function QuoteFormContent() {
                       s <= step ? 'text-foreground' : 'text-muted-foreground'
                     }`}
                   >
-                    {s === 1 ? 'Choose Mulch' : s === 2 ? 'Contact Info' : 'Confirm'}
+                    {s === 1 ? 'Contact Info' : s === 2 ? 'Select Services' : 'Project Details'}
                   </span>
                   {s < 3 && (
                     <div
@@ -184,239 +155,153 @@ function QuoteFormContent() {
             <Card>
               <CardContent className="p-8">
                 <form onSubmit={handleSubmit}>
-                  {/* Step 1: Choose Mulch */}
+                  {/* Step 1: Contact Info */}
                   {step === 1 && (
-                    <div className="space-y-6">
-                      <h2 className="text-2xl font-bold mb-6">Choose Your Mulch</h2>
-
-                      {/* Mulch Type Selection */}
-                      <div>
-                        <label className="block text-sm font-medium mb-3">Mulch Type *</label>
-                        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                          {mulchServices.map((service) => (
-                            <div
-                              key={service.id}
-                              onClick={() =>
-                                setFormData((prev) => ({ ...prev, mulchType: service.id }))
-                              }
-                              className={`p-4 border rounded-lg cursor-pointer transition-colors ${
-                                formData.mulchType === service.id
-                                  ? 'border-primary bg-primary/5'
-                                  : 'border-muted hover:border-primary/50'
-                              }`}
-                            >
-                              <div className="relative w-full h-16 rounded overflow-hidden mb-3">
-                                <Image
-                                  src={service.backgroundImage}
-                                  alt={service.title}
-                                  fill
-                                  className="object-cover"
-                                />
-                              </div>
-                              <p className="font-medium text-sm">{service.title}</p>
-                              <p className="text-xs text-muted-foreground mt-1">
-                                From ${service.pricing.pickupPerYard}/yard
-                              </p>
-                            </div>
-                          ))}
-                        </div>
-                      </div>
-
-                      {/* Quantity */}
-                      <div>
-                        <label className="block text-sm font-medium mb-2">
-                          How many cubic yards? *
-                        </label>
-                        <Input
-                          name="yards"
-                          type="number"
-                          min="1"
-                          step="0.5"
-                          value={formData.yards}
-                          onChange={handleInputChange}
-                          required
-                          placeholder="e.g. 5"
-                        />
-                        <p className="text-xs text-muted-foreground mt-1">
-                          Not sure?{' '}
-                          <Link href="/#calculator" className="text-primary underline">
-                            Use our mulch calculator
-                          </Link>
-                        </p>
-                      </div>
-
-                      {/* Delivery or Pickup */}
-                      <div>
-                        <label className="block text-sm font-medium mb-3">
-                          Delivery or Pickup? *
-                        </label>
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                          {deliveryOptions.map((option) => (
-                            <div
-                              key={option.id}
-                              onClick={() =>
-                                setFormData((prev) => ({ ...prev, fulfillment: option.id }))
-                              }
-                              className={`p-4 border rounded-lg cursor-pointer transition-colors ${
-                                formData.fulfillment === option.id
-                                  ? 'border-primary bg-primary/5'
-                                  : 'border-muted hover:border-primary/50'
-                              }`}
-                            >
-                              <div className="flex items-center gap-3">
-                                <div
-                                  className={`w-5 h-5 rounded-full border-2 flex items-center justify-center ${
-                                    formData.fulfillment === option.id
-                                      ? 'border-primary bg-primary'
-                                      : 'border-muted-foreground'
-                                  }`}
-                                >
-                                  {formData.fulfillment === option.id && (
-                                    <Check className="h-3 w-3 text-white" />
-                                  )}
-                                </div>
-                                <div>
-                                  <p className="font-medium">{option.label}</p>
-                                  <p className="text-xs text-muted-foreground">
-                                    {option.description}
-                                  </p>
-                                </div>
-                              </div>
-                            </div>
-                          ))}
-                        </div>
-                      </div>
-
-                      {/* Estimated Cost */}
-                      {selectedMulch && yardsNum > 0 && formData.fulfillment && (
-                        <div className="p-4 rounded-lg bg-primary/5 border border-primary/20">
-                          <p className="text-sm text-muted-foreground">Estimated Cost</p>
-                          <p className="text-2xl font-bold text-primary">
-                            ${estimatedTotal.toFixed(2)}
-                          </p>
-                          <p className="text-xs text-muted-foreground">
-                            {yardsNum} yards of {selectedMulch.title} &times; ${pricePerYard}/yard (
-                            {isDelivery ? 'delivered' : 'pickup'})
-                          </p>
-                        </div>
-                      )}
-                    </div>
-                  )}
-
-                  {/* Step 2: Contact Info */}
-                  {step === 2 && (
                     <div className="space-y-6">
                       <h2 className="text-2xl font-bold mb-6">Your Contact Information</h2>
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div>
-                          <label className="block text-sm font-medium mb-2">Full Name *</label>
+                          <label className="block text-sm font-medium mb-2">
+                            Full Name *
+                          </label>
                           <Input
                             name="name"
                             value={formData.name}
                             onChange={handleInputChange}
                             required
-                            placeholder="John Smith"
+                            placeholder="Your full name"
                           />
                         </div>
                         <div>
-                          <label className="block text-sm font-medium mb-2">Phone Number *</label>
+                          <label className="block text-sm font-medium mb-2">
+                            Email *
+                          </label>
+                          <Input
+                            name="email"
+                            type="email"
+                            value={formData.email}
+                            onChange={handleInputChange}
+                            required
+                            placeholder="john@example.com"
+                          />
+                        </div>
+                      </div>
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                          <label className="block text-sm font-medium mb-2">
+                            Phone Number *
+                          </label>
                           <Input
                             name="phone"
                             type="tel"
                             value={formData.phone}
                             onChange={handleInputChange}
                             required
-                            placeholder="(740) 555-0123"
+                            placeholder="(614) 555-0123"
                           />
                         </div>
-                      </div>
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div>
-                          <label className="block text-sm font-medium mb-2">Email</label>
+                          <label className="block text-sm font-medium mb-2">
+                            Street Address *
+                          </label>
                           <Input
-                            name="email"
-                            type="email"
-                            value={formData.email}
+                            name="address"
+                            value={formData.address}
                             onChange={handleInputChange}
-                            placeholder="john@example.com"
+                            required
+                            placeholder="Your delivery address"
                           />
                         </div>
-                        {formData.fulfillment === 'delivery' && (
-                          <div>
-                            <label className="block text-sm font-medium mb-2">
-                              Delivery Address *
-                            </label>
-                            <Input
-                              name="address"
-                              value={formData.address}
-                              onChange={handleInputChange}
-                              required
-                              placeholder="123 Main St"
-                            />
-                          </div>
-                        )}
                       </div>
-                      {formData.fulfillment === 'delivery' && (
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                          <div>
-                            <label className="block text-sm font-medium mb-2">City *</label>
-                            <Input
-                              name="city"
-                              value={formData.city}
-                              onChange={handleInputChange}
-                              required
-                              placeholder="Lancaster"
-                            />
-                          </div>
-                          <div>
-                            <label className="block text-sm font-medium mb-2">ZIP Code *</label>
-                            <Input
-                              name="zip"
-                              value={formData.zip}
-                              onChange={handleInputChange}
-                              required
-                              placeholder="43130"
-                            />
-                          </div>
-                        </div>
-                      )}
-                    </div>
-                  )}
-
-                  {/* Step 3: Confirm & Additional Details */}
-                  {step === 3 && (
-                    <div className="space-y-6">
-                      <h2 className="text-2xl font-bold mb-6">Confirm Your Order</h2>
-
-                      {/* Order Summary */}
-                      {selectedMulch && (
-                        <div className="p-6 rounded-lg bg-muted/50 space-y-3">
-                          <h3 className="font-semibold text-lg">Order Summary</h3>
-                          <div className="flex justify-between">
-                            <span>Mulch Type</span>
-                            <span className="font-medium">{selectedMulch.title}</span>
-                          </div>
-                          <div className="flex justify-between">
-                            <span>Quantity</span>
-                            <span className="font-medium">{formData.yards} cubic yards</span>
-                          </div>
-                          <div className="flex justify-between">
-                            <span>Fulfillment</span>
-                            <span className="font-medium capitalize">{formData.fulfillment}</span>
-                          </div>
-                          <div className="flex justify-between border-t pt-3">
-                            <span className="font-semibold">Estimated Total</span>
-                            <span className="font-bold text-primary">
-                              ${estimatedTotal.toFixed(2)}
-                            </span>
-                          </div>
-                        </div>
-                      )}
-
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div>
                           <label className="block text-sm font-medium mb-2">
-                            Preferred Date
+                            City *
+                          </label>
+                          <Input
+                            name="city"
+                            value={formData.city}
+                            onChange={handleInputChange}
+                            required
+                            placeholder="Lancaster"
+                          />
+                        </div>
+                        <div>
+                          <label className="block text-sm font-medium mb-2">
+                            ZIP Code *
+                          </label>
+                          <Input
+                            name="zip"
+                            value={formData.zip}
+                            onChange={handleInputChange}
+                            required
+                            placeholder="43130"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Step 2: Select Services */}
+                  {step === 2 && (
+                    <div className="space-y-6">
+                      <h2 className="text-2xl font-bold mb-6">Select Services</h2>
+                      <p className="text-muted-foreground mb-6">
+                        Choose one or more services you're interested in.
+                      </p>
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        {allServices.map((service) => (
+                          <div
+                            key={service.id}
+                            onClick={() => handleServiceToggle(service.id)}
+                            className={`p-4 border rounded-lg cursor-pointer transition-colors ${
+                              formData.services.includes(service.id)
+                                ? 'border-primary bg-primary/5'
+                                : 'border-muted hover:border-primary/50'
+                            }`}
+                          >
+                            <div className="flex items-center gap-3">
+                              <div
+                                className={`w-6 h-6 rounded-full border-2 flex items-center justify-center ${
+                                  formData.services.includes(service.id)
+                                    ? 'border-primary bg-primary'
+                                    : 'border-muted-foreground'
+                                }`}
+                              >
+                                {formData.services.includes(service.id) && (
+                                  <Check className="h-4 w-4 text-white" />
+                                )}
+                              </div>
+                              <span className="font-medium">{service.title}</span>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Step 3: Project Details */}
+                  {step === 3 && (
+                    <div className="space-y-6">
+                      <h2 className="text-2xl font-bold mb-6">Project Details</h2>
+                      <div>
+                        <label className="block text-sm font-medium mb-2">
+                          Tell us about your project *
+                        </label>
+                        <textarea
+                          name="projectDescription"
+                          value={formData.projectDescription}
+                          onChange={handleInputChange}
+                          required
+                          rows={5}
+                          placeholder="Describe your project, including any specific requirements, measurements, or questions..."
+                          className="w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+                        />
+                      </div>
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                          <label className="block text-sm font-medium mb-2">
+                            Preferred Start Date
                           </label>
                           <Input
                             name="preferredDate"
@@ -445,19 +330,6 @@ function QuoteFormContent() {
                           </select>
                         </div>
                       </div>
-                      <div>
-                        <label className="block text-sm font-medium mb-2">
-                          Additional Notes
-                        </label>
-                        <textarea
-                          name="notes"
-                          value={formData.notes}
-                          onChange={handleInputChange}
-                          rows={3}
-                          placeholder="Any special instructions for delivery, access notes, etc."
-                          className="w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
-                        />
-                      </div>
                     </div>
                   )}
 
@@ -474,15 +346,18 @@ function QuoteFormContent() {
                         onClick={nextStep}
                         className="ml-auto"
                         disabled={
-                          (step === 1 &&
-                            (!formData.mulchType || !formData.yards || !formData.fulfillment)) ||
-                          (step === 2 && (!formData.name || !formData.phone))
+                          (step === 1 && (!formData.name || !formData.email || !formData.phone)) ||
+                          (step === 2 && formData.services.length === 0)
                         }
                       >
                         Continue <ArrowRight className="ml-2 h-4 w-4" />
                       </Button>
                     ) : (
-                      <Button type="submit" className="ml-auto" disabled={isSubmitting}>
+                      <Button
+                        type="submit"
+                        className="ml-auto"
+                        disabled={isSubmitting || !formData.projectDescription}
+                      >
                         {isSubmitting ? 'Submitting...' : 'Submit Quote Request'}
                       </Button>
                     )}
@@ -496,9 +371,9 @@ function QuoteFormContent() {
               <CardContent className="p-6">
                 <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
                   <div>
-                    <h3 className="font-semibold">Want to order right now?</h3>
+                    <h3 className="font-semibold">Need immediate assistance?</h3>
                     <p className="text-muted-foreground text-sm">
-                      Call us directly to place your order over the phone.
+                      Call us directly for faster service.
                     </p>
                   </div>
                   <div className="flex gap-4">

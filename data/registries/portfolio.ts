@@ -10,8 +10,8 @@ export interface PortfolioItem {
 }
 
 export const portfolioItems: PortfolioItem[] = [
-  { id: 1, title: 'Hasu House Garden & Barbecue', category: 'Residential', image: '/assets/img/portfolio/portfolio-630_450-1.jpg' },
-  { id: 2, title: 'Foliage as an Asset in the Garden', category: 'Landscape', image: '/assets/img/portfolio/portfolio-630_450-3.jpg' },
+  { id: 1, title: 'Hasu House Garden & Barbecue', category: 'Residential', image: '/assets/img/portfolio/gallery1.JPG' },
+  { id: 2, title: 'Foliage as an Asset in the Garden', category: 'Landscape', image: '/assets/img/portfolio/gallery7.jpg' },
   { id: 3, title: 'Lawn and Garden Maintenance', category: 'Maintenance', image: '/assets/img/portfolio/gallery-first.jpg' },
   { id: 4, title: 'Tree-Trimming & Removal', category: 'Tree Services', image: '/assets/img/portfolio/gallery2.jpg' },
   { id: 5, title: 'Premium Black Mulch Installation', category: 'Mulch', image: '/assets/img/portfolio/gallery3.jpg' },

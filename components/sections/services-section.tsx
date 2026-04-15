@@ -103,7 +103,7 @@ export function ServicesSection({
                   Ready to Transform Your Landscape?
                 </h3>
                 <p className="text-white/80">
-                  Get a free quote for professional mulch delivery and installation.
+                  Contact us for professional mulch delivery and installation — free quotes, no obligation.
                 </p>
               </div>
               <Button asChild size="lg" variant="secondary">

@@ -45,22 +45,22 @@ export const FEATURES_REGISTRY = {
     },
     {
       icon: Shield,
-      title: "Competitive Pricing",
-      description: "Best prices in Fairfield County with delivery included in our per-yard pricing. No hidden fees.",
+      title: "Transparent & Fair",
+      description: "No hidden fees, no surprises. Call or request a quote for honest, straightforward pricing.",
     },
     {
       icon: Clock,
-      title: "Serving Since 1995",
-      description: "Over 25 years providing premium mulch to Lancaster, OH and the surrounding Fairfield County area.",
+      title: "A+ BBB Rated",
+      description: "5-star Google rating and A+ with the Better Business Bureau. Trusted by homeowners and businesses across Fairfield County.",
     },
   ] satisfies Feature[],
 
   // Trust Indicators / Statistics - Mulch Specific
   trustIndicators: [
-    { label: "Yards Delivered", value: "50,000", suffix: "+" },
-    { label: "Years Serving Lancaster", value: "25", suffix: "+" },
+    { label: "Google Rating", value: "5.0", suffix: " Stars" },
+    { label: "BBB Rating", value: "A", suffix: "+" },
     { label: "Delivery Radius (Miles)", value: "25", suffix: "" },
-    { label: "Happy Customers", value: "500", suffix: "+" },
+    { label: "Mulch Types", value: "3", suffix: " Premium" },
   ] satisfies TrustIndicator[],
 
   // Section defaults

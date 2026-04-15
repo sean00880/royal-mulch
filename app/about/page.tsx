@@ -2,62 +2,53 @@ import { Metadata } from 'next';
 import Image from 'next/image';
 import { Check, Award, Users, Truck, Leaf } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
+import { teamMembers } from '@/data/registries/team';
 import { CTASection, TestimonialsSection } from '@/components/sections';
 
 export const metadata: Metadata = {
   title: 'About Us | Royal Mulch - Lancaster, OH',
   description:
-    'Learn about Royal Mulch - your trusted mulch delivery and pickup partner since 1995. Family-owned and operated in Lancaster, OH.',
+    'Learn about Royal Mulch - your trusted mulch supplier in Lancaster, OH. Locally owned, A+ BBB rated, 5-star Google reviews.',
 };
 
 const stats = [
-  { icon: Award, value: '25+', label: 'Years of Experience' },
-  { icon: Users, value: '500+', label: 'Happy Customers' },
-  { icon: Truck, value: '50,000+', label: 'Yards Delivered' },
+  { icon: Award, value: 'A+', label: 'BBB Rating' },
+  { icon: Users, value: '5.0', label: 'Google Star Rating' },
+  { icon: Truck, value: '25 mi', label: 'Delivery Radius' },
   { icon: Leaf, value: '100%', label: 'Satisfaction Guaranteed' },
 ];
 
 const values = [
   {
     title: 'Quality First',
-    description: 'All our mulch is triple ground for a fine, consistent texture. We never cut corners on quality.',
+    description: 'We source only the finest materials and maintain strict quality standards.',
   },
   {
     title: 'Customer Focus',
-    description: 'Same-day delivery, fair pricing, and we always show up on time. Your satisfaction is guaranteed.',
+    description: 'Your satisfaction is our top priority. We go above and beyond to exceed expectations.',
   },
   {
     title: 'Local Commitment',
-    description: 'Family-owned and operated in Lancaster since 1995. We know our community and its needs.',
+    description: 'Proudly serving Central Ohio from our yard on Ruble Park Ave in Lancaster.',
   },
   {
     title: 'Environmental Care',
-    description: 'Locally sourced materials and sustainable processing. Our natural mulch is 100% chemical-free.',
+    description: 'We use sustainable practices and eco-friendly materials whenever possible.',
   },
 ];
 
 export default function AboutPage() {
   return (
     <>
-      {/* Page Header with real image */}
-      <section className="relative py-20 overflow-hidden">
-        <div className="absolute inset-0 z-0">
-          <Image
-            src="/assets/img/bg/services-title-bg.jpg"
-            alt="Royal Mulch yard sign"
-            fill
-            className="object-cover"
-            priority
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/40" />
-        </div>
-        <div className="container-custom relative z-10">
+      {/* Page Header */}
+      <section className="relative py-20 bg-gradient-primary">
+        <div className="container-custom">
           <div className="max-w-2xl">
             <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
               About Royal Mulch
             </h1>
             <p className="text-lg text-white/90">
-              Your trusted partner for premium mulch delivery and pickup since 1995.
+              Locally owned. A+ BBB rated. 5-star Google reviews. Lancaster, OH.
             </p>
           </div>
         </div>
@@ -66,32 +57,39 @@ export default function AboutPage() {
       {/* Story Section */}
       <section className="section-padding">
         <div className="container-custom">
-          <div className="mx-auto max-w-3xl">
-            <span className="inline-block px-4 py-1 bg-primary/10 text-primary rounded-full text-sm font-medium mb-4">
-              Our Story
-            </span>
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">
-              Family-Owned & Operated Since 1995
-            </h2>
-            <div className="space-y-4 text-muted-foreground">
-              <p>
-                Royal Mulch started with a simple idea: provide the best quality mulch in
-                Fairfield County with honest pricing and reliable delivery. What began as a
-                small family operation has grown into one of the most trusted mulch suppliers
-                in Central Ohio.
-              </p>
-              <p>
-                For over 25 years, we&apos;ve been supplying premium triple ground mulch to
-                homeowners, landscapers, and businesses across Lancaster, Carroll, Baltimore,
-                Pickerington, Circleville, and surrounding communities. We&apos;ve delivered
-                over 50,000 yards of mulch — and we&apos;re just getting started.
-              </p>
-              <p>
-                Our commitment remains the same today as it was in 1995: quality products,
-                fair prices, and the kind of service where we know our customers by name.
-                Whether you need 3 yards delivered to your front door or you&apos;re picking
-                up a single yard at our Lancaster yard, you&apos;ll always get our best.
-              </p>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <span className="inline-block px-4 py-1 bg-primary/10 text-primary rounded-full text-sm font-medium mb-4">
+                Our Story
+              </span>
+              <h2 className="text-3xl md:text-4xl font-bold mb-6">
+                Locally Owned & Operated in Lancaster, OH
+              </h2>
+              <div className="space-y-4 text-muted-foreground">
+                <p>
+                  Royal Mulch started with a simple idea: deliver quality triple ground mulch
+                  to homes and businesses across Central Ohio — fast, fairly priced, and done right.
+                </p>
+                <p>
+                  Operating from our yard at 3503 Ruble Park Ave in Lancaster, we specialize in
+                  premium black, brown, and natural mulch with same-day delivery across Fairfield
+                  County. Every load is triple ground for a fine, consistent texture that looks
+                  great and lasts.
+                </p>
+                <p>
+                  We're proud to be A+ rated by the Better Business Bureau and carry a perfect
+                  5-star rating on Google. We serve homeowners, property managers, and landscapers
+                  in Lancaster, Carroll, Baltimore, Pickerington, Circleville, and surrounding communities.
+                </p>
+              </div>
+            </div>
+            <div className="relative aspect-square rounded-2xl overflow-hidden">
+              <Image
+                src="/assets/img/about/about-1.jpg"
+                alt="Royal Mulch team at work"
+                fill
+                className="object-cover"
+              />
             </div>
           </div>
         </div>
@@ -130,6 +128,36 @@ export default function AboutPage() {
                   </div>
                   <h3 className="text-xl font-semibold mb-2">{value.title}</h3>
                   <p className="text-muted-foreground text-sm">{value.description}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Team Section */}
+      <section className="section-padding bg-muted/30">
+        <div className="container-custom">
+          <div className="text-center mb-12">
+            <span className="inline-block px-4 py-1 bg-primary/10 text-primary rounded-full text-sm font-medium mb-4">
+              Our Team
+            </span>
+            <h2 className="text-3xl md:text-4xl font-bold">Meet the Experts</h2>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {teamMembers.slice(0, 4).map((member) => (
+              <Card key={member.id} className="overflow-hidden group card-hover">
+                <div className="relative h-64 overflow-hidden">
+                  <Image
+                    src={member.image}
+                    alt={member.name}
+                    fill
+                    className="object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
+                </div>
+                <CardContent className="p-4 text-center">
+                  <h3 className="font-semibold">{member.name}</h3>
+                  <p className="text-sm text-muted-foreground">{member.role}</p>
                 </CardContent>
               </Card>
             ))}

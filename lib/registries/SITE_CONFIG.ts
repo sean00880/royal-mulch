@@ -15,18 +15,18 @@ export const SITE_CONFIG = {
     shortName: "RM",
     legalName: "Royal Mulch LLC",
     tagline: "Premium Mulch Delivery & Pickup",
-    mission: "Delivering quality triple ground mulch to Central Ohio since 1995",
-    established: "1995",
+    mission: "Delivering quality triple ground mulch to Central Ohio",
+    established: "2023",
     location: "Lancaster, OH",
     description: "Premium triple ground mulch delivered to your door in Lancaster, OH and Fairfield County. Black, brown, and natural mulch available for delivery or pickup.",
   },
 
   // Contact Information
   contact: {
-    phone: "(740) 654-5555",
-    phoneLink: "tel:+17406545555",
+    phone: "(614) 582-0234",
+    phoneLink: "tel:+16145820234",
     email: "info@royalmulch.com",
-    address: "123 Mulch Lane, Lancaster, OH 43130",
+    address: "3503 Ruble Park Ave, Lancaster, OH 43130",
     serviceArea: "Central Ohio",
     hours: {
       monday: "7:00 AM - 6:00 PM",
@@ -93,9 +93,7 @@ export const SITE_CONFIG = {
   // Social Links
   social: {
     facebook: "https://facebook.com/royalmulch",
-    instagram: "https://instagram.com/royalmulch",
-    twitter: "https://twitter.com/royalmulch",
-    youtube: "https://youtube.com/@royalmulch",
+    google: "https://g.page/royal-mulch-lancaster",
   },
 
   // Copyright

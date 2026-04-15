@@ -17,11 +17,6 @@ export interface Service {
   features: string[];
   category: "mulch";
   mulchColor?: string;
-  pricing?: {
-    pickupPerYard: number;
-    deliveryPerYard: number;
-    minimumDelivery: number;
-  };
 }
 
 // Mulch Products
@@ -47,7 +42,6 @@ const mulchServices: Service[] = [
     ],
     category: "mulch",
     mulchColor: "#1a1a1a",
-    pricing: { pickupPerYard: 32, deliveryPerYard: 42, minimumDelivery: 3 },
   },
   {
     id: "brown-mulch",
@@ -70,7 +64,6 @@ const mulchServices: Service[] = [
     ],
     category: "mulch",
     mulchColor: "#5c3a1e",
-    pricing: { pickupPerYard: 30, deliveryPerYard: 40, minimumDelivery: 3 },
   },
   {
     id: "natural-mulch",
@@ -93,7 +86,6 @@ const mulchServices: Service[] = [
     ],
     category: "mulch",
     mulchColor: "#c4a882",
-    pricing: { pickupPerYard: 28, deliveryPerYard: 38, minimumDelivery: 3 },
   },
 ];
 

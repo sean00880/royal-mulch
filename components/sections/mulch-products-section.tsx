@@ -42,17 +42,17 @@ export function MulchProductsSection() {
                   {service.shortDescription}
                 </p>
 
-                {/* Pricing */}
+                {/* Delivery Options */}
                 <div className="grid grid-cols-2 gap-3">
                   <div className="rounded-lg bg-muted/50 p-3 text-center">
                     <p className="text-xs text-muted-foreground">Pickup</p>
-                    <p className="text-xl font-bold text-primary">${service.pricing.pickupPerYard}</p>
-                    <p className="text-xs text-muted-foreground">per yard</p>
+                    <p className="text-sm font-semibold text-primary">Available</p>
+                    <p className="text-xs text-muted-foreground">No minimum</p>
                   </div>
                   <div className="rounded-lg bg-muted/50 p-3 text-center">
-                    <p className="text-xs text-muted-foreground">Delivered</p>
-                    <p className="text-xl font-bold text-primary">${service.pricing.deliveryPerYard}</p>
-                    <p className="text-xs text-muted-foreground">per yard</p>
+                    <p className="text-xs text-muted-foreground">Delivery</p>
+                    <p className="text-sm font-semibold text-primary">Same-Day</p>
+                    <p className="text-xs text-muted-foreground">3 yard min.</p>
                   </div>
                 </div>
 
@@ -66,9 +66,14 @@ export function MulchProductsSection() {
                   ))}
                 </ul>
 
-                <Button asChild className="w-full mt-4">
-                  <Link href={`/services/${service.slug}`}>Learn More</Link>
-                </Button>
+                <div className="flex flex-col gap-2 mt-4">
+                  <Button asChild className="w-full">
+                    <Link href="/quote">Get a Free Quote</Link>
+                  </Button>
+                  <Button asChild variant="outline" className="w-full">
+                    <Link href={`/services/${service.slug}`}>Learn More</Link>
+                  </Button>
+                </div>
               </CardContent>
             </Card>
           ))}

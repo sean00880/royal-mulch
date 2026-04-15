@@ -51,25 +51,19 @@ export function DeliveryPickupSection() {
                   <Truck className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
                   <div>
                     <p className="font-medium">3 Yard Minimum</p>
-                    <p className="text-sm text-muted-foreground">Delivery fee included in per-yard pricing</p>
+                    <p className="text-sm text-muted-foreground">Delivery fee included — call or request a quote</p>
                   </div>
                 </li>
               </ul>
 
               <div className="rounded-lg bg-primary/5 p-4 mt-4">
-                <p className="text-sm font-medium">Delivery Pricing</p>
-                <div className="flex justify-between mt-2 text-sm">
-                  <span className="text-muted-foreground">Black Mulch</span>
-                  <span className="font-medium">$42/yard</span>
-                </div>
-                <div className="flex justify-between mt-1 text-sm">
-                  <span className="text-muted-foreground">Brown Mulch</span>
-                  <span className="font-medium">$40/yard</span>
-                </div>
-                <div className="flex justify-between mt-1 text-sm">
-                  <span className="text-muted-foreground">Natural Mulch</span>
-                  <span className="font-medium">$38/yard</span>
-                </div>
+                <p className="text-sm font-medium">Available Mulch Types</p>
+                <ul className="mt-2 space-y-1 text-sm text-muted-foreground">
+                  <li className="flex items-center gap-2"><span className="h-2 w-2 rounded-full bg-gray-900" />Black Mulch</li>
+                  <li className="flex items-center gap-2"><span className="h-2 w-2 rounded-full bg-amber-800" />Brown Mulch</li>
+                  <li className="flex items-center gap-2"><span className="h-2 w-2 rounded-full bg-amber-600" />Natural Mulch</li>
+                </ul>
+                <p className="mt-2 text-xs text-muted-foreground">Contact us for current pricing and availability.</p>
               </div>
 
               <Button asChild className="w-full">
@@ -94,7 +88,7 @@ export function DeliveryPickupSection() {
                 <li className="flex items-start gap-3">
                   <MapPin className="h-5 w-5 text-secondary mt-0.5 flex-shrink-0" />
                   <div>
-                    <p className="font-medium">123 Mulch Lane, Lancaster</p>
+                    <p className="font-medium">3503 Ruble Park Ave, Lancaster</p>
                     <p className="text-sm text-muted-foreground">Easy access, plenty of room for trucks & trailers</p>
                   </div>
                 </li>
@@ -115,27 +109,26 @@ export function DeliveryPickupSection() {
               </ul>
 
               <div className="rounded-lg bg-secondary/5 p-4 mt-4">
-                <p className="text-sm font-medium">Pickup Pricing (Save $10-12/yard)</p>
-                <div className="flex justify-between mt-2 text-sm">
-                  <span className="text-muted-foreground">Black Mulch</span>
-                  <span className="font-medium">$32/yard</span>
-                </div>
-                <div className="flex justify-between mt-1 text-sm">
-                  <span className="text-muted-foreground">Brown Mulch</span>
-                  <span className="font-medium">$30/yard</span>
-                </div>
-                <div className="flex justify-between mt-1 text-sm">
-                  <span className="text-muted-foreground">Natural Mulch</span>
-                  <span className="font-medium">$28/yard</span>
-                </div>
+                <p className="text-sm font-medium">Pickup Saves You More</p>
+                <ul className="mt-2 space-y-1 text-sm text-muted-foreground">
+                  <li className="flex items-center gap-2"><span className="h-2 w-2 rounded-full bg-gray-900" />Black Mulch</li>
+                  <li className="flex items-center gap-2"><span className="h-2 w-2 rounded-full bg-amber-800" />Brown Mulch</li>
+                  <li className="flex items-center gap-2"><span className="h-2 w-2 rounded-full bg-amber-600" />Natural Mulch</li>
+                </ul>
+                <p className="mt-2 text-xs text-muted-foreground">Call for pickup pricing — always lower than delivery.</p>
               </div>
 
-              <Button asChild variant="secondary" className="w-full">
-                <Link href="tel:+17406545555">
-                  <Phone className="h-4 w-4 mr-2" />
-                  Call (740) 654-5555
-                </Link>
-              </Button>
+              <div className="flex flex-col gap-2">
+                <Button asChild variant="secondary" className="w-full">
+                  <Link href="/quote">Request Pickup Quote</Link>
+                </Button>
+                <Button asChild variant="outline" className="w-full">
+                  <Link href="tel:+16145820234">
+                    <Phone className="h-4 w-4 mr-2" />
+                    Call (614) 582-0234
+                  </Link>
+                </Button>
+              </div>
             </CardContent>
           </Card>
         </div>

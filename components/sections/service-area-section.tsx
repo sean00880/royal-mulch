@@ -63,7 +63,7 @@ export function ServiceAreaSection() {
                 <div className="space-y-3">
                   <div>
                     <p className="font-medium">Royal Mulch Yard</p>
-                    <p className="text-sm text-muted-foreground">123 Mulch Lane</p>
+                    <p className="text-sm text-muted-foreground">3503 Ruble Park Ave</p>
                     <p className="text-sm text-muted-foreground">Lancaster, OH 43130</p>
                   </div>
                   <div className="flex items-start gap-2">
@@ -76,8 +76,8 @@ export function ServiceAreaSection() {
                   </div>
                   <div className="flex items-center gap-2">
                     <Phone className="h-4 w-4 text-primary" />
-                    <a href="tel:+17406545555" className="text-sm font-medium hover:text-primary transition-colors">
-                      (740) 654-5555
+                    <a href="tel:+16145820234" className="text-sm font-medium hover:text-primary transition-colors">
+                      (614) 582-0234
                     </a>
                   </div>
                 </div>
@@ -90,7 +90,7 @@ export function ServiceAreaSection() {
                 <ul className="mt-2 space-y-1.5 text-sm text-muted-foreground">
                   <li className="flex items-center gap-2">
                     <span className="h-1.5 w-1.5 rounded-full bg-primary flex-shrink-0" />
-                    Save $10-12 per yard vs. delivery
+                    Save on every yard vs. delivery
                   </li>
                   <li className="flex items-center gap-2">
                     <span className="h-1.5 w-1.5 rounded-full bg-primary flex-shrink-0" />

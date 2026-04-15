@@ -101,27 +101,16 @@ export function MulchCalculatorSection() {
                     <p className="text-sm text-muted-foreground">cubic yards (order {roundedYards})</p>
                   </div>
 
-                  <div className="mt-6 grid grid-cols-3 gap-4 text-center">
-                    <div className="rounded-md bg-background p-3">
-                      <p className="text-xs text-muted-foreground">Black (Pickup)</p>
-                      <p className="font-bold">${roundedYards * 32}</p>
-                    </div>
-                    <div className="rounded-md bg-background p-3">
-                      <p className="text-xs text-muted-foreground">Brown (Pickup)</p>
-                      <p className="font-bold">${roundedYards * 30}</p>
-                    </div>
-                    <div className="rounded-md bg-background p-3">
-                      <p className="text-xs text-muted-foreground">Natural (Pickup)</p>
-                      <p className="font-bold">${roundedYards * 28}</p>
-                    </div>
-                  </div>
+                  <p className="mt-4 text-sm text-muted-foreground text-center">
+                    Available in Black, Brown, and Natural — for delivery or pickup.
+                  </p>
 
                   <div className="mt-4 flex flex-col sm:flex-row gap-3">
                     <Button asChild className="flex-1">
-                      <Link href={`/quote?yards=${roundedYards}`}>Get a Delivery Quote</Link>
+                      <Link href={`/quote?yards=${roundedYards}`}>Get Your Free Quote</Link>
                     </Button>
                     <Button asChild variant="outline" className="flex-1">
-                      <Link href="tel:+17406545555">Call to Order</Link>
+                      <Link href="tel:+16145820234">Call to Order</Link>
                     </Button>
                   </div>
                 </div>

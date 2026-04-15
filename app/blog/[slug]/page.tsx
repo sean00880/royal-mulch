@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
-import { ArrowLeft, ArrowRight, Calendar, User, Eye, Share2 } from 'lucide-react';
+import { ArrowLeft, ArrowRight, Calendar, User, Eye, MessageCircle, Share2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { blogsRegistry, blogArticles } from '@/data/registries/blogs';
@@ -87,7 +87,7 @@ export default async function BlogDetailPage({
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
             {/* Main Content */}
             <div className="lg:col-span-2">
-              {/* Featured image */}
+              {/* Featured Image */}
               <div className="relative aspect-video rounded-xl overflow-hidden mb-8">
                 <Image
                   src={article.image}
@@ -138,59 +138,51 @@ export default async function BlogDetailPage({
               </div>
             </div>
 
-            {/* Sidebar - Sticky */}
+            {/* Sidebar */}
             <div className="lg:col-span-1">
-              <div className="lg:sticky lg:top-24 space-y-6 transition-all duration-300 ease-out will-change-transform">
-                {/* Organization Card */}
-                <Card className="overflow-hidden">
-                  <CardContent className="p-6 text-center">
-                    <div className="relative w-20 h-20 rounded-full overflow-hidden mx-auto mb-4 ring-2 ring-primary/20">
-                      <Image
-                        src="/assets/img/logo/logo1.png"
-                        alt="Royal Mulch"
-                        fill
-                        className="object-contain p-1"
-                      />
-                    </div>
-                    <h3 className="text-lg font-semibold">{article.author}</h3>
-                    <p className="text-sm text-primary font-medium mb-1">Royal Mulch</p>
-                    <p className="text-muted-foreground text-sm">
-                      Sharing mulch tips and insights for Central Ohio homeowners since 1995.
-                    </p>
-                  </CardContent>
-                </Card>
+              {/* Author Card */}
+              <Card className="mb-6">
+                <CardContent className="p-6 text-center">
+                  <div className="w-20 h-20 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
+                    <span className="text-3xl">👨‍🌾</span>
+                  </div>
+                  <h3 className="text-lg font-semibold">{article.author}</h3>
+                  <p className="text-muted-foreground text-sm">
+                    Sharing tips and insights about landscaping and gardening in Central Ohio.
+                  </p>
+                </CardContent>
+              </Card>
 
-                {/* Related Articles */}
-                <Card>
-                  <CardContent className="p-6">
-                    <h3 className="text-xl font-semibold mb-4">Related Articles</h3>
-                    <div className="space-y-4">
-                      {relatedArticles.map((related) => (
-                        <Link
-                          key={related.id}
-                          href={`/blog/${related.slug}`}
-                          className="flex gap-4 group"
-                        >
-                          <div className="w-20 h-20 rounded-lg flex-shrink-0 relative overflow-hidden">
-                            <Image
-                              src={related.image}
-                              alt={related.title}
-                              fill
-                              className="object-cover transition-transform duration-300 group-hover:scale-105"
-                            />
-                          </div>
-                          <div>
-                            <h4 className="font-semibold line-clamp-2 group-hover:text-primary transition-colors duration-200">
-                              {related.title}
-                            </h4>
-                            <p className="text-sm text-muted-foreground">{related.date}</p>
-                          </div>
-                        </Link>
-                      ))}
-                    </div>
-                  </CardContent>
-                </Card>
-              </div>
+              {/* Related Articles */}
+              <Card>
+                <CardContent className="p-6">
+                  <h3 className="text-xl font-semibold mb-4">Related Articles</h3>
+                  <div className="space-y-4">
+                    {relatedArticles.map((related) => (
+                      <Link
+                        key={related.id}
+                        href={`/blog/${related.slug}`}
+                        className="flex gap-4 group"
+                      >
+                        <div className="relative w-20 h-20 rounded-lg overflow-hidden flex-shrink-0">
+                          <Image
+                            src={related.image}
+                            alt={related.title}
+                            fill
+                            className="object-cover transition-transform duration-300 group-hover:scale-110"
+                          />
+                        </div>
+                        <div>
+                          <h4 className="font-semibold line-clamp-2 group-hover:text-primary transition-colors">
+                            {related.title}
+                          </h4>
+                          <p className="text-sm text-muted-foreground">{related.date}</p>
+                        </div>
+                      </Link>
+                    ))}
+                  </div>
+                </CardContent>
+              </Card>
             </div>
           </div>
         </div>

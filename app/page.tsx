@@ -1,12 +1,9 @@
 import {
   HeroSection,
-  StatsSection,
-  MulchProductsSection,
-  DeliveryPickupSection,
+  ServicesSection,
   FeaturesSection,
-  MulchCalculatorSection,
   TestimonialsSection,
-  ServiceAreaSection,
+  PortfolioSection,
   BlogSection,
   FAQSection,
   CTASection,
@@ -15,37 +12,25 @@ import {
 export default function HomePage() {
   return (
     <>
-      {/* Hero - Mulch delivery focused */}
-      <HeroSection
-        title="Premium Mulch Delivered to Your Door"
-        description="Triple ground black, brown, and natural mulch — delivered same-day or available for pickup at our Lancaster, OH yard. Serving Fairfield County since 1995."
-      />
+      {/* Hero Section */}
+      <HeroSection />
 
-      {/* Trust Indicators */}
-      <StatsSection />
-
-      {/* Three Mulch Products with Pricing */}
-      <MulchProductsSection />
-
-      {/* Delivery vs Pickup Comparison */}
-      <DeliveryPickupSection />
-
-      {/* Why Choose Us */}
+      {/* Features Section - Why Choose Us */}
       <FeaturesSection />
 
-      {/* Mulch Calculator */}
-      <MulchCalculatorSection />
+      {/* Mulch Services Section */}
+      <ServicesSection />
 
-      {/* Customer Testimonials */}
+      {/* Portfolio Gallery */}
+      <PortfolioSection />
+
+      {/* Testimonials */}
       <TestimonialsSection />
 
-      {/* Service Area */}
-      <ServiceAreaSection />
-
-      {/* Blog - SEO Content */}
+      {/* Blog Section */}
       <BlogSection />
 
-      {/* FAQ */}
+      {/* FAQ Section */}
       <FAQSection />
 
       {/* Final CTA */}
